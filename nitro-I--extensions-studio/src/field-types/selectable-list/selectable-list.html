@@ -1,0 +1,17 @@
+﻿<div class="b-field">
+    <div class="b-radio radio-inline">
+        <label class="radio-item" ng-repeat="option in $.field.DataSource.Items">
+        <input type="radio" name="selectable-list-{{$.field.FieldName}}" value="{{$index}}"/>
+        <i class="input-helper"></i>
+        {{option[$.field.Settings.DataSource.TextField]}}
+    </label>
+    </div>
+</div>
+<div class="b-field">
+    <button type="button" class="b-btn btn-action" ng-click="$.onEditTemplatesClick()">
+        <i class="codicon codicon-plus"></i>
+        Edit Templates
+    </button>
+</div>
+
+<div ng-include="$.editTemplatesWidget"></div>

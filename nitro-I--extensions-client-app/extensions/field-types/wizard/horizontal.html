@@ -1,0 +1,16 @@
+﻿<div class="wizard wizard-horizontal">
+    <div class="wizard-steps">
+        <div class="wizard-step" ng-repeat="step in [FIELD].Settings.Steps | orderBy:'ViewOrder'" ng-class="{'active':[FIELD].Settings.CurrentStep==step.Name,'opacity-50  disabled':!step.IsEnable}" ng-click="bWizard_onStepClick([FIELD],step,$event)">
+            <div class="wizard-wrapper">
+                <div class="wizard-icon" ng-if="step.Icon"><i class="{{step.Icon}}"></i></div>
+                <div class="wizard-label">
+                    <div class="wizard-title">{{step.Title}}</div>
+                    <div class="wizard-desc">{{step.Description}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="wizard-panes">
+        [FIELDPANES]
+    </div>
+</div>

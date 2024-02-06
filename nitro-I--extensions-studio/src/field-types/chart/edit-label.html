@@ -1,0 +1,119 @@
+<b-right-widget ng-if="$.workingMode=='edit-label'" data-title="Edit label" data-icon="notebook-template" data-subtitle="Add or edit grid column" data-await-action="$.awaitAction">
+    <div class="d-flex">
+        <div class="col-12 b-splitter pe-3">
+            <div class="b-field">
+                <label class="form-label">Lable Type</label>
+                <div class="b-input-group">
+                    <select ng-model="$.field.Settings.LableType" class="b-input form-select" chosen placeholder-text-single="'Select lable Type'" required>
+                        <option value="BindToProperty">Bind To Property</option>
+                        <option value="CustomLable">Custom Lable</option>
+                    </select>
+                    <span><i class="codicon codicon-activate-breakpoints"></i></span>
+                </div>
+            </div>
+            <!------------------------------------>
+            <!-- Bind To Property -->
+            <!------------------------------------>
+            <div ng-if="$.field.Settings.LableType=='BindToProperty'">
+                <div class="b-field">
+                    <label class="form-label">Data Type</label>
+                    <div class="b-input-group">
+                        <select ng-model="$.field.Settings.BindLable.DataType" class="b-input form-select" chosen placeholder-text-single="'Select column Type'" required>
+                            <option value="String">String</option>
+                            <option value="Number">Number</option>
+                            <option value="DateTime">Date Time</option>
+                            <option value="Time">Time</option>
+                        </select>
+                        <span><i class="codicon codicon-activate-breakpoints"></i></span>
+                    </div>
+                </div>
+                <!------------------------------------>
+                <!-- Date Time -->
+                <!------------------------------------>
+                <div ng-if="$.field.Settings.BindLable.DataType=='DateTime'">
+                    <div class="b-field">
+                        <label class="form-label">Date Time Format</label>
+                        <div class="b-input-group">
+                            <input type="text" class="b-input form-control" ng-model="$.field.Settings.BindLable.DateTimeFormat" placeholder="default MM/DD/YYYY" autocomplete="off" required />
+                            <span><i class="codicon codicon-calendar"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="b-field">
+                    <label class="form-label">Property</label>
+                    <div monaco-editor id="txtProperty" ng-model="$.field.Settings.BindLable.Content" data-language="bProperties" data-one-line="true" required></div>
+                </div>
+            </div>
+
+            <!------------------------------------>
+            <!-- Custom Lable -->
+            <!------------------------------------>
+            <div ng-if="$.field.Settings.LableType=='CustomLable'">
+                <div class="b-field">
+                    <label class="form-label">Data Type</label>
+                    <div class="b-input-group">
+                        <div id="grpCustomLable" class="group-content collapse show">
+                            <table class="table table-bordered table-dark table-columns-vmiddle">
+                                <thead>
+                                    <tr>
+                                        <th>Lable Name</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="param in $.field.Settings.CustomLables | orderBy : 'ViewOrder'">
+                                        <td>
+                                            <input type="text" ng-model="param.LableName" class="b-input form-control" />
+                                        </td>
+                                        <td style="width:25px;">
+                                            <button class="btn btn-sm btn-default" ng-click="$.field.Settings.CustomLables.splice($index,1)">
+                                                <i class="codicon codicon-trash text-white"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td colspan="3">
+                                            <button type="button" class="b-btn btn-sm" ng-click="$.onAddCustomLablesClick()">
+                                                <i class="codicon codicon-plus me-0"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                            <!-- <div ng-if="!$.service.Params.length&&1==2" class="b-notify notify-warning mb-4">
+                                <i class="codicon codicon-info b-icon-2"></i>
+                                <div class="text">
+                                    <h4 class="label">No service params.</h4>
+                                    <span class="subtext">
+                                        Click
+                                        <button type="button" class="b-btn btn-sm ms-2 me-2" ng-click="$.onAddServiceParamClick()">Add
+                                            Param </button> for creating service param(s).
+                                        entity.
+                                    </span>
+                                </div>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr class="mb-4" />
+    <div class="mb-1 d-flex justify-content-end mt-auto">
+        <button type="button" class="b-btn btn-submit me-2" ng-click="$.onSaveLableClick()">
+            <i class="codicon codicon-save"></i>
+            Save Lable
+        </button>
+        <button type="button" class="b-btn btn-cancel" ng-click="$.onCancelLableClick()">
+            <i class="codicon codicon-circle-slash"></i>
+            Cancel
+        </button>
+    </div>
+</b-right-widget>
+
+
+

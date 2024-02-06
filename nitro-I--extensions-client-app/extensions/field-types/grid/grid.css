@@ -1,0 +1,29 @@
+.b-grid-table {
+  width: 100%;
+}
+
+.b-grid-table thead {
+  border-bottom: solid 0.1rem #f0f0f0;
+}
+
+.b-grid-table thead .grid-header-column {
+  color: #b8b8b8;
+  font-size: 0.95em;
+  font-weight: 500;
+  padding: 0.5rem.2rem;
+}
+
+.b-grid-table tbody tr {
+  border-bottom: solid 0.1rem #f0f0f0;
+}
+
+.b-grid-table tbody tr:last-child {
+  border: none;
+}
+
+.b-grid-table tbody .grid-body-column {
+  color: #333;
+  padding: 0.5rem 0.2rem;
+  font-size: 0.95rem;
+  font-weight: 400;
+}

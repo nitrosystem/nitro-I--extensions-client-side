@@ -1,0 +1,4 @@
+﻿<select ng-model="$.field.Value" class="b-input form-control"
+    ng-options="item.Value as item.Text for item in $.field.DataSource.Items">
+    <option Value="">{{$.field.Settings.Placeholder}}</option>
+</select>

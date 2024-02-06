@@ -1,0 +1,493 @@
+<div class="create-submit-entity">
+    <!------------------------------------>
+    <!--Query Type-->
+    <!------------------------------------>
+    <div class="d-flex justify-content-end">
+        <div class="b-radio d-inline-block mb-3" ng-model="$.submitEntityService.QueryType" required>
+            <label class="me-3">
+                <input type="radio" name="queryType{{$.submitEntityService.ServiceID}}" ng-value="0"
+                    ng-model="$.submitEntityService.QueryType" ng-change="$.onQueryTypeChange()" required />
+                <i class="input-helper"></i>
+                Query Designer
+            </label>
+            <label>
+                <input type="radio" name="queryType{{$.submitEntityService.ServiceID}}" ng-value="1"
+                    ng-model="$.submitEntityService.QueryType" ng-change="$.onQueryTypeChange()" required />
+                <i class="input-helper"></i>
+                Custom Query
+            </label>
+        </div>
+    </div>
+    <!------------------------------------>
+    <!--Start Query Designer-->
+    <!------------------------------------>
+    <div ng-if="$.submitEntityService.QueryType==0">
+        <!------------------------------------>
+        <!--Select Action Type-->
+        <!------------------------------------>
+        <div class="b-radio b-required b-notify notify-warning position-relative p-3 mb-3" ng-model="$.submitEntityService.ActionType" required>
+            <label class="me-3">
+                <input id="rdActionType" type="radio" name="actionType" ng-value="0"
+                    ng-model="$.submitEntityService.ActionType" ng-change="$.onActionTypeChange(0)" />
+                <i class="input-helper"></i>
+                Insert & Update
+            </label>
+            <label class="me-3">
+                <input type="radio" name="actionType" ng-value="1" ng-model="$.submitEntityService.ActionType"
+                    ng-change="$.onActionTypeChange(1)" />
+                <i class="input-helper"></i>
+                Insert
+            </label>
+            <label>
+                <input type="radio" name="actionType" ng-value="2" ng-model="$.submitEntityService.ActionType"
+                    ng-change="$.onActionTypeChange(2)" />
+                <i class="input-helper"></i>
+                Update
+            </label>
+        </div>
+        <div ng-if="$.submitEntityService.ActionType>=0">
+            <!------------------------------------>
+            <!--Select Entity-->
+            <!------------------------------------>
+            <div class="mb-3">
+                <label class="form-label">Select Entity</label>
+                <div class="d-flex">
+                    <div class="col-6">
+                        <select id="drpEntityID" ng-model="$.submitEntityService.EntityID" class="b-input form-select" ng-options="entity.EntityID as entity.EntityName for entity in $.entities" ng-change="$.onSelectedEntityChange()" chosen inherit-select-classes="true" placeholder-text-single="'Select entity'"
+                            required>
+                    </select>
+                    </div>
+                    <div class="col-auto ms-2 me-2">
+                        <button type="button" class="b-btn btn-action me-2" ng-click="$.onUpdateEntityColumnsClick()">
+                        <i class="codicon codicon-refresh"></i>
+                    </button>
+                    </div>
+                    <div class="col-auto" ng-if="$.submitEntityService.Entity">
+                        <button type="button" class="b-btn btn-action" ng-click="$.onAddColumnsAsParamsClick()">
+                        Add Columns As Params
+                    </button>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <!------------------------------------>
+                <!--Service Info-->
+                <!------------------------------------>
+                <div class="col-6">
+                    <div class="b-group">
+                        <div class="group-header" data-bs-toggle="collapse" data-bs-target="#grpDatabase">
+                            <h3 class="group-label">
+                                <span class="group-icon">
+                                <i class="codicon codicon-server-process"></i>
+                            </span> Database
+                            </h3>
+                            <span class="group-collapse">
+                            <i class="codicon codicon-chevron-up"></i>
+                        </span>
+                        </div>
+                        <div id="grpDatabase" class="group-content collapse show">
+                            <div class="b-field">
+                                <label class="form-label">Database Object Type</label>
+                                <select id="drpDatabaseObjectType" ng-model="$.submitEntityService.DatabaseObjectType" class="b-input form-select" required>
+                                <option value="" disabled>Select database object type</option>
+                                <option ng-value="0">Stored Procedure</option>
+                                <option ng-value="1">Query Text</option>
+                            </select>
+                            </div>
+                            <div ng-if="$.submitEntityService.DatabaseObjectType==0">
+                                <div class="b-field">
+                                    <label class="form-label">Database Object Name</label>
+                                    <div class="b-input-group">
+                                        <div class="b-input form-control d-flex">
+                                            <div class="col-4">
+                                                <input type="text" id="txtSpPrefix" ng-model="$.submitEntityService.Settings.StoredProcedurePrefixName" class="b-input-nobg" placeholder="Prefix name" required />
+                                            </div>
+                                            <div class="col-8">
+                                                <input type="text" id="txtSpPostfix" ng-model="$.submitEntityService.Settings.StoredProcedurePostfixName" ng-change="$.submitEntityService.StoredProcedureNameModified=true" class="b-input-nobg" placeholder="Example GetProducts" autocomplete="off" required
+                                                />
+                                            </div>
+                                        </div>
+                                        <span><i class="codicon codicon-table"></i></span>
+                                    </div>
+                                </div>
+                                <div class="b-field">
+                                    <button type="button" class="b-btn btn-action btn-full mt-3">
+                                    <i class="codicon codicon-light-bulb" ></i>
+                                    Check SP is selectable 
+                                </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!------------------------------------>
+                <!--Base Query-->
+                <!------------------------------------>
+                <div class="col-6">
+                    <div class="b-group">
+                        <div class="group-header" data-bs-toggle="collapse" data-bs-target="#grpBaseQuery">
+                            <h3 class="group-label">
+                                <span class="group-icon">
+                                <i class="codicon codicon-server-process"></i>
+                            </span> Base Query
+                            </h3>
+                            <span class="group-collapse">
+                            <i class="codicon codicon-chevron-up"></i>
+                        </span>
+                        </div>
+                        <div id="grpBaseQuery" class="group-content">
+                            <div class="b-field">
+                                <div class="row">
+                                    <div monaco-editor ng-model="$.submitEntityService.BaseQuery" data-language="sql" data-height="180px" required>
+                                    </div>
+                                    <div class="sol-12">
+                                        <button type="button" class="b-btn btn-action btn-full mt-3" ng-click="$.onResetBaseQueryClick()">
+                                        Reset Query
+                                    </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!------------------------------------>
+            <!--Service Params-->
+            <!------------------------------------>
+            <div class="b-group">
+                <div class="group-header" data-bs-toggle="collapse" data-bs-target="#grpServiceParams">
+                    <h3 class="group-label">
+                        <span class="group-icon">
+                        <i class="codicon codicon-server-process"></i>
+                    </span> Service Params
+                    </h3>
+                    <span class="group-collapse">
+                    <i class="codicon codicon-chevron-up"></i>
+                </span>
+                </div>
+                <div id="grpServiceParams" class="group-content collapse show">
+                    <table class="table table-bordered table-dark table-columns-vmiddle">
+                        <thead>
+                            <tr>
+                                <th>Param Name</th>
+                                <th>Param Type</th>
+                                <th>Default Value</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="param in $.service.Params | orderBy : 'ViewOrder'">
+                                <td>
+                                    <input type="text" ng-model="param.ParamName" class="b-input form-control" />
+                                </td>
+                                <td>
+                                    <input type="text" ng-model="param.ParamType" class="b-input form-control" />
+                                </td>
+                                <td>
+                                    <input type="text" ng-model="param.DefaultValue" class="b-input form-control" />
+                                </td>
+                                <td>
+                                    <input type="number" ng-model="param.ViewOrder" class="b-input form-control" />
+                                </td>
+                                <td style="width:50px;">
+                                    <button class="b-btn btn-action btn-sm" ng-click="$.service.Params.splice($index,1)">
+                                    <i class="codicon codicon-trash me-0"></i>
+                                </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="3">
+                                    <button type="button" class="b-btn btn-sm" ng-click="$.onAddServiceParamClick()">
+                                    <i class="codicon codicon-plus me-0"></i>
+                                </button>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                    <div ng-if="!$.service.Params.length&&1==2" class="b-notify notify-warning mb-4">
+                        <i class="codicon codicon-info b-icon-2"></i>
+                        <div class="text">
+                            <h4 class="label">No service params.</h4>
+                            <span class="subtext">
+                            Click
+                            <button type="button" class="b-btn btn-sm ms-2 me-2" ng-click="$.onAddServiceParamClick()">
+                                Add
+                                Param
+                            </button> for creating service param(s).
+                            entity.
+                        </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!------------------------------------>
+            <!--Select Entity-->
+            <!------------------------------------>
+            <div class="mb-3">
+                <label class="form-label">Select Entity</label>
+                <div class="d-flex">
+                    <div class="col-6">
+                        <select id="drpEntityID" ng-model="$.submitEntityService.EntityID" class="b-input form-select" ng-options="entity.EntityID as entity.EntityName for entity in $.entities" ng-change="$.onSelectedEntityChange()" chosen placeholder-text-single="'Select entity'"
+                            required>
+                    </select>
+                    </div>
+                    <div class="col-auto ms-2 me-2">
+                        <button type="button" class="b-btn btn-action me-2" ng-click="$.onUpdateEntityColumnsClick()">
+                        <i class="codicon codicon-refresh"></i>
+                    </button>
+                    </div>
+                    <div class="col-auto" ng-if="$.submitEntityService.Entity">
+                        <button type="button" class="b-btn btn-action" ng-click="$.onAddColumnsAsParamsClick()">
+                        Add Columns As Params
+                    </button>
+                    </div>
+                </div>
+            </div>
+            <hr />
+            <div ng-if="$.submitEntityService.Entity">
+                <!------------------------------------>
+                <!--Insert Options-->
+                <!------------------------------------>
+                <div ng-if="$.submitEntityService.ActionType==0 || $.submitEntityService.ActionType==1" class="row clearfix">
+                    <div class="col-6">
+                        <!------------------------------------>
+                        <!--Insert Columns-->
+                        <!------------------------------------>
+                        <div class="b-group">
+                            <div class="group-header" data-bs-toggle="collapse" data-bs-target="#grpInsertColumns">
+                                <h3 class="group-label">
+                                    <span class="group-icon">
+                                    <i class="codicon codicon-server-process"></i>
+                                </span> Insert Columns
+                                </h3>
+                                <span class="group-collapse">
+                                <i class="codicon codicon-chevron-up"></i>
+                            </span>
+                            </div>
+                            <div id="grpInsertColumns" class="group-content collapse show">
+                                <table class="table table-bordered table-dark table-columns-vmiddle">
+                                    <thead>
+                                        <tr>
+                                            <th style="width:50px;">
+                                                <label class="b-checkbox ps-3 ms-2">
+                                                <input type="checkbox"
+                                                    ng-model="$.submitEntityService.Entity.AllSelectedForInsert"
+                                                    ng-change="$.onSelectedInsertEntityAllColumnsChange()" />
+                                                <i class="checkbox-icon"></i>
+                                            </label>
+                                            </th>
+                                            <th>Column Name</th>
+                                            <th>Value</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="column in $.submitEntityService.Entity.InsertColumns">
+                                            <td>
+                                                <label class="b-checkbox ps-3 ms-2">
+                                                <input type="checkbox" ng-model="column.IsSelected"
+                                                    ng-change="$.onSelectedInsertEntityColumnChange(column)" />
+                                                <i class="checkbox-icon"></i>
+                                            </label>
+                                            </td>
+                                            <td>{{column.ColumnName}}</td>
+                                            <td>
+                                                <input type="text" ng-model="column.ColumnValue" ng-disabled="!column.IsSelected" class="b-input form-control" placeholder="Enter column value" />
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <th colspan="5">
+                                                <p class="b-invalid">{{$.form.error.Entity.InsertColumns}}</p>
+                                            </th>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <!------------------------------------>
+                        <!--Insert Conditions-->
+                        <!------------------------------------>
+                        <div class="b-group">
+                            <div class="group-header" data-bs-toggle="collapse" data-bs-target="#grpInsertConditions">
+                                <h3 class="group-label">
+                                    <span class="group-icon">
+                                    <i class="codicon codicon-server-process"></i>
+                                </span> Insert Conditions
+                                </h3>
+                                <span class="group-collapse">
+                                <i class="codicon codicon-chevron-up"></i>
+                            </span>
+                            </div>
+                            <div id="grpInsertConditions" class="group-content collapse show">
+                                <table class="table table-bordered table-dark table-columns-vmiddle">
+                                    <thead>
+                                        <tr>
+                                            <th>Sql Query Condition</th>
+                                            <th>Group Name</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="condition in $.submitEntityService.Entity.InsertConditions">
+                                            <td>
+                                                <div monaco-editor ng-model="condition.SqlQuery" data-language="sql" data-height="80px" required></div>
+                                            </td>
+                                            <td style="width:130px;">
+                                                <input type="text" ng-model="condition.GroupName" class="b-input form-control" placeholder="Enter group name" />
+                                            </td>
+                                            <td style="width:50px;">
+                                                <button class="b-btn btn-action btn-sm" ng-click="$.$.submitEntityService.Entity.InsertConditions.splice($index,1)">
+                                                <i class="codicon codicon-trash me-0"></i>
+                                            </button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <td colspan="3">
+                                                <button type="button" class="b-btn btn-action btn-sm" ng-click="$.$.submitEntityService.Entity.InsertConditions.push({GroupName:'Group'+($.submitEntityService.Entity.InsertConditions.length+1)})">
+                                                <i class="codicon codicon-plus me-0"></i>
+                                            </button>
+                                            </td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!------------------------------------>
+                <!--Update Options-->
+                <!------------------------------------>
+                <div ng-if="$.submitEntityService.ActionType==0 || $.submitEntityService.ActionType==2" class="row clearfix">
+                    <div class="col-6">
+                        <!------------------------------------>
+                        <!--Update Columns-->
+                        <!------------------------------------>
+                        <div class="b-group">
+                            <div class="group-header" data-bs-toggle="collapse" data-bs-target="#grpUpdateColumns">
+                                <h3 class="group-label">
+                                    <span class="group-icon">
+                                    <i class="codicon codicon-server-process"></i>
+                                </span> Update Columns
+                                </h3>
+                                <span class="group-collapse">
+                                <i class="codicon codicon-chevron-up"></i>
+                            </span>
+                            </div>
+                            <div id="grpUpdateColumns" class="group-content collapse show">
+                                <table class="table table-bordered table-dark table-columns-vmiddle">
+                                    <thead>
+                                        <tr>
+                                            <th style="width:50px;">
+                                                <label class="b-checkbox ps-3 ms-2">
+                                                <input type="checkbox"
+                                                    ng-model="$.submitEntityService.Entity.AllSelectedForUpdate"
+                                                    ng-change="$.onSelectedUpdateEntityAllColumnsChange()" />
+                                                <i class="checkbox-icon"></i>
+                                            </label>
+                                            </th>
+                                            <th>Column Name</th>
+                                            <th>Value</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="column in $.submitEntityService.Entity.UpdateColumns">
+                                            <td>
+                                                <label class="b-checkbox ps-3 ms-2">
+                                                <input type="checkbox" ng-model="column.IsSelected"
+                                                    ng-change="$.onSelectedUpdateEntityColumnChange(column)" />
+                                                <i class="checkbox-icon"></i>
+                                            </label>
+                                            </td>
+                                            <td>{{column.ColumnName}}</td>
+                                            <td>
+                                                <input type="text" ng-model="column.ColumnValue" ng-disabled="!column.IsSelected" class="b-input form-control" placeholder="Enter column value" />
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <th colspan="5">
+                                                <p class="b-invalid">{{$.form.error.Entity.UpdateColumns}}</p>
+                                            </th>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <!------------------------------------>
+                        <!--Update Conditions-->
+                        <!------------------------------------>
+                        <div class="b-group" ng-if="$.submitEntityService.ActionType==0 || $.submitEntityService.ActionType==2">
+                            <div class="group-header" data-bs-toggle="collapse" data-bs-target="#grpUpdateConditions">
+                                <h3 class="group-label">
+                                    <span class="group-icon">
+                                    <i class="codicon codicon-server-process"></i>
+                                </span> Update Conditions
+                                </h3>
+                                <span class="group-collapse">
+                                <i class="codicon codicon-chevron-up"></i>
+                            </span>
+                            </div>
+                            <div id="grpUpdateConditions" class="group-content collapse show">
+                                <table class="table table-bordered table-dark table-columns-vmiddle">
+                                    <thead>
+                                        <tr>
+                                            <th>Sql Query Condition</th>
+                                            <th>Group Name</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="condition in $.submitEntityService.Entity.UpdateConditions">
+                                            <td>
+                                                <div monaco-editor ng-model="condition.SqlQuery" data-language="sql" data-height="80px" required></div>
+                                            </td>
+                                            <td style="width:130px;">
+                                                <input type="text" ng-model="condition.GroupName" class="b-input form-control" placeholder="Enter group name" />
+                                            </td>
+                                            <td style="width:50px;">
+                                                <button class="b-btn btn-action btn-sm" ng-click="$.$.submitEntityService.Entity.UpdateConditions.splice($index,1)">
+                                                <i class="codicon codicon-trash me-0"></i>
+                                            </button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <td colspan="3">
+                                                <button type="button" class="b-btn btn-action btn-sm" ng-click="$.$.submitEntityService.Entity.UpdateConditions.push({GroupName:'Group'+($.submitEntityService.Entity.UpdateConditions.length+1)})">
+                                                <i class="codicon codicon-plus me-0"></i>
+                                            </button>
+                                            </td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!------------------------------------>
+    <!--End Query Designer-->
+    <!------------------------------------>
+    <!------------------------------------>
+    <!--Custom Query-->
+    <!------------------------------------>
+    <div ng-if="$.submitEntityService.QueryType==1">
+        <div class="b-field">
+            <div monaco-editor ng-model="$.submitEntityService.CustomQuery" data-language="sql" data-height="350px" required></div>
+        </div>
+    </div>
+</div>

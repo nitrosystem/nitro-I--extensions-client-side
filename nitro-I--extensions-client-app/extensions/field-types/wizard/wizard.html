@@ -1,0 +1,15 @@
+﻿<div class="wizard-steps artin m-b-30">
+    <div class="wz-steps">
+        <div ng-repeat="step in [FIELD].Settings.Steps" ng-show="step.IsShow" class="wz-step"
+             ng-class="{'active':[FIELD].Settings.CurrentStep==step.Name,'disabled':!step.IsEnable}"
+             ng-click="bWizard_onStepClick([FIELD],step)">
+            <span class="step-number">
+                {{$index+1}}
+            </span>
+            {{step.Title}}
+        </div>
+    </div>
+    <div class="wizard-panes">
+        [FIELDPANES]
+    </div>
+</div>

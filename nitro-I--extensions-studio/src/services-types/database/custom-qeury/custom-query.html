@@ -1,0 +1,115 @@
+﻿<div class="create-custom-query">
+    <div class="row">
+        <div class="col-6">
+            <!------------------------------------>
+            <!--Service Info-->
+            <!------------------------------------>
+            <div class="b-group">
+                <div class="group-header" data-bs-toggle="collapse" data-bs-target="#grpDatabase">
+                    <h3 class="group-label">
+                        <span class="group-icon">
+                            <i class="codicon codicon-server-process"></i>
+                        </span> Database
+                    </h3>
+                    <span class="group-collapse">
+                        <i class="codicon codicon-chevron-up"></i>
+                    </span>
+                </div>
+                <div id="grpDatabase" class="group-content collapse show">
+                    <div class="b-field">
+                        <label class="form-label">Database Object Type</label>
+                        <select id="drpDatabaseObjectType" ng-model="$.customQueryService.DatabaseObjectType" class="b-input form-select" required>
+                            <option value="" disabled>Select database object type</option>
+                            <option ng-value="0">Stored Procedure</option>
+                            <option ng-value="1">Query Text</option>
+                        </select>
+                    </div>
+                    <div class="b-field" ng-if="$.customQueryService.DatabaseObjectType==0">
+                        <label class="form-label">Database Object Name</label>
+                        <div class="b-input-group">
+                            <div class="b-input form-control d-flex">
+                                <div class="col-4">
+                                    <input type="text" id="txtSpPrefix" ng-model="$.customQueryService.Settings.StoredProcedurePrefixName" class="b-input-nobg" placeholder="Prefix name" required />
+                                </div>
+                                <div class="col-8">
+                                    <input type="text" id="txtSpPostfix" ng-model="$.customQueryService.Settings.StoredProcedurePostfixName" ng-change="$.customQueryService.Settings.StoredProcedureNameModified=true" class="b-input-nobg" placeholder="Example GetProducts" autocomplete="off"
+                                        required />
+                                </div>
+                            </div>
+                            <span><i class="codicon codicon-table"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <!------------------------------------>
+            <!--Service Params-->
+            <!------------------------------------>
+            <div class="b-group">
+                <div class="group-header" data-bs-toggle="collapse" data-bs-target="#grpServiceParams">
+                    <h3 class="group-label">
+                        <span class="group-icon">
+                            <i class="codicon codicon-server-process"></i>
+                        </span> Service Params
+                    </h3>
+                    <span class="group-collapse">
+                        <i class="codicon codicon-chevron-up"></i>
+                    </span>
+                </div>
+                <div id="grpServiceParams" class="group-content collapse show">
+                    <table class="table table-dark">
+                        <thead>
+                            <tr>
+                                <th>Param Name</th>
+                                <th>Param Type</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="param in $.service.Params | orderBy : 'ViewOrder'">
+                                <td>
+                                    <input type="text" ng-model="param.ParamName" class="b-input form-control" />
+                                </td>
+                                <td>
+                                    <input type="text" ng-model="param.ParamType" class="b-input form-control" />
+                                </td>
+                                <td>
+                                    <input type="number" ng-model="param.ViewOrder" class="b-input form-control" />
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="3">
+                                    <button type="button" ng-if="$.customQueryService.DatabaseObjectType==1" class="btn btn-sm btn-primary" ng-click="$.onGDetectServiceParams()">
+                                        Detect Params
+                                    </button>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!------------------------------------>
+    <!--Custom Query Editor-->
+    <!------------------------------------>
+    <div class="b-group">
+        <div class="group-header" data-bs-toggle="collapse" data-bs-target="#grpSQLQuery">
+            <h3 class="group-label">
+                <span class="group-icon">
+                    <i class="codicon codicon-server-process"></i>
+                </span> SQL Query
+            </h3>
+            <span class="group-collapse">
+                <i class="codicon codicon-chevron-up"></i>
+            </span>
+        </div>
+        <div id="grpSQLQuery" class="group-content collapse show">
+            <label class="form-label">Sql Query</label>
+            <div id="editorSqlQuery" monaco-editor ng-model="$.customQueryService.Query" data-language="sql" data-height="350px" required>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,18 @@
+﻿<div class="b-input-group">
+    <textarea ng-model="[FIELD].Value"
+              ng-disabled="![FIELD].IsEnabled"
+              ng-minlength="{{[FIELD].Settings.MinLength}}"
+              maxlength="{{[FIELD].Settings.MaxLength}}"
+              ng-maxlength="{{[FIELD].Settings.MaxLength}}"
+              placeholder="{{[FIELD].Settings.Placeholder}}"
+              class="{{[FIELD].Settings.InputCssClass}}"
+              rows="[[Settings.Rows]]"></textarea>
+    <span class="input-icon input-icon--{{[FIELD].Settings.IconPosition}}">
+        <i class="{{[FIELD].Settings.FontIcon}}"></i>
+    </span>
+    <p class="small" ng-if="[FIELD].Value && [FIELD].Settings.ShowMaxLength">
+        <span ng-if="[FIELD].Value">{{[FIELD].Settings.MaxLength-[FIELD].Value.length}}</span>
+        <span ng-if="[FIELD].Settings.MaxLengthMessage">{{[FIELD].Settings.MaxLengthMessage}}</span>
+    </p>
+</div>
+

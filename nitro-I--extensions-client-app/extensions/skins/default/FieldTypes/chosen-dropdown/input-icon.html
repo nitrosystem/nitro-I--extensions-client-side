@@ -1,0 +1,36 @@
+﻿<div class="input-icon input-icon--{{[FIELD].Settings.IconPosition}}">
+    <select ng-if="![FIELD].Settings.AllowMultiple" ng-model="[FIELD].Value" class="{{[FIELD].Settings.DropdownCssClass}}"
+            chosen 
+            ng-options="option[[FIELD].Settings.DataSource.ValueField] as option[[FIELD].Settings.DataSource.TextField] for option in [FIELD].Options"
+            placeholder-text-single="[FIELD].Settings.Placeholder" is-json-value="[FIELD].IsJsonValue" bolbol>
+    </select>
+
+    <select ng-if="[FIELD].Settings.AllowMultiple" ng-model="[FIELD].Value" class="{{[FIELD].Settings.DropdownCssClass}}"
+            chosen  multiple
+            ng-options="option[[FIELD].Settings.DataSource.ValueField] as option[[FIELD].Settings.DataSource.TextField] for option in [FIELD].Options"
+            placeholder-text-single="[FIELD].Settings.Placeholder" is-json-value="[FIELD].IsJsonValue" bolbol>
+    </select>
+    <span class="input-icon input-icon--{{[FIELD].Settings.IconPosition}}">
+        <i class="{{[FIELD].Settings.FontIcon}}"></i>
+    </span>
+    <span ng-if="[FIELD].Settings.InputType=='password' || [FIELD].Settings.StayTogglePassword" class="f-20 zmdi zmdi-eye" ng-click="bTextBox_onTogglePassword([FIELD])" style="position: absolute;top: 12px;left: 12px;cursor: pointer;z-index: 999;"></span>
+</div>
+
+<style type="text/css">
+    .input-icon {
+        position: relative;
+    }
+
+        .input-icon > input {
+            padding-right: 30px;
+        }
+
+        .input-icon .input-icon {
+            position: absolute;
+            right: 10px;
+            top: 5px;
+            font-size: 22px;
+            opacity: .5;
+            color: #adadad;
+        }
+</style>

@@ -1,0 +1,29 @@
+<b-right-widget ng-if="$.workingMode=='edit-settings'" data-title="Sider Settings" data-icon="notebook-template"
+    data-subtitle="config swiper slider" data-await-action="$.awaitAction">
+    <div class="b-field">
+        <label class="form-label">Layout Template</label>
+        <div monaco-editor ng-model="$.field.Settings.LayoutTemplate" data-language="html" data-height="150px" required>
+        </div>
+    </div>
+    <div class="b-field">
+        <label class="form-label">Item Template</label>
+        <div monaco-editor ng-model="$.field.Settings.ItemTemplate" data-language="html" data-height="150px" required>
+        </div>
+    </div>
+    <div class="b-field">
+        <label class="form-label">Custom Css</label>
+        <div monaco-editor ng-model="$.field.Settings.CustomCss" data-language="css" data-height="150px" required>
+        </div>
+    </div>
+    <hr class="mb-4" />
+    <div class="mb-1 d-flex justify-content-end mt-auto">
+        <button type="button" class="b-btn btn-submit me-2" ng-click="$.onSaveSettingsClick()">
+            <i class="codicon codicon-save"></i>
+            Save Settings
+        </button>
+        <button type="button" class="b-btn btn-cancel" ng-click="$.onCancelSettingsClick()">
+            <i class="codicon codicon-circle-slash"></i>
+            Cancel
+        </button>
+    </div>
+</b-right-widget>

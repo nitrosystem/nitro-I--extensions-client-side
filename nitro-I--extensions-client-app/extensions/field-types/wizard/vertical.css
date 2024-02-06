@@ -1,0 +1,91 @@
+﻿.wizard-vertical {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  padding: 1rem;
+}
+
+.wizard-vertical .wzv-steps {
+  margin-left: 1.5rem;
+  min-width: 20rem;
+  border-left: solid.1rem #efefef;
+  padding-left: 1.5rem;
+}
+
+.wizard-vertical .wzv-step {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  padding: 1rem 1.1rem;
+  border-radius: 0.475rem;
+  margin-bottom: 0.6rem;
+  cursor: pointer;
+}
+
+.wizard-vertical .wzv-step.active {
+  position: relative;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  border: solid 0.1rem #ff00008c;
+}
+
+.wizard-vertical .wzv-step.active:after {
+  content: "";
+  position: absolute;
+  left: -0.2rem;
+  top: 48%;
+  border-width: 1px 0 0 1px;
+  border-style: solid;
+  border-color: #ff00008c;
+  width: 1rem;
+  height: 1rem;
+  transform: rotate(-45deg) translateY(-50%);
+  transition: all 0.5s;
+  background-color: #fff;
+  border-radius: 0.1rem;
+}
+
+.wizard-vertical .wzv-step:hover {
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
+
+.wizard-vertical .wzv-step.disabled {
+  opacity: 0.6;
+}
+
+.wizard-vertical .wzv-step .step-icon {
+  display: inline-flex;
+  font-size: 1.2rem;
+  margin-left: 1.5rem;
+  color: #ff0000;
+}
+
+.wizard-vertical .wzv-step .step-text {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+
+.wizard-vertical .wzv-step .step-title {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #333;
+}
+
+.wizard-vertical .wzv-step.active .step-title {
+  color: #ff0000;
+}
+
+.wizard-vertical .wzv-step .step-desc {
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: #777;
+  margin: 0;
+  padding: 0;
+}
+
+.wizard-vertical .wizard-panes {
+  display: block;
+  width: 100%;
+}

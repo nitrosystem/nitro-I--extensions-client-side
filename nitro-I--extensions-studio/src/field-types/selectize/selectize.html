@@ -1,0 +1,5 @@
+﻿<select ng-model="$.field.Value" class="b-input form-select">
+    <option ng-if="!$.field.Settings.ShowAll || !$.field.Options.length" value="" disabled>{{$.field.Settings.Placeholder}}</option>
+    <option ng-if="$.field.Settings.ShowAll && $.field.Options.length" value="">{{$.field.Settings.AllText}}</option>
+    <option ng-repeat="option in $.field.Options" ng-value="option[$.field.Settings.DataSource.ValueField]" ng-selected="$.field.Value == option[$.field.Settings.DataSource.ValueField]">{{option[$.field.Settings.DataSource.TextField]}}</option>
+</select>

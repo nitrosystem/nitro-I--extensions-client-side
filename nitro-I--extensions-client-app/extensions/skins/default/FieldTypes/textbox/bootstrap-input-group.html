@@ -1,0 +1,14 @@
+﻿<div class="input-group" ng-class="{'has-error':[FIELD].Validated && ![FIELD].IsValid}">
+    <span class="input-group-addon" ng-if="[FIELD].Settings.IconPosition=='left'"><i class="{{[FIELD].Settings.FontIcon}}"></i></span>
+    <input type="{{[FIELD].Settings.InputType}}"
+           id="bTextbox[FIELDNAME]"
+           ng-model="[FIELD].Value"
+           ng-disabled="![FIELD].IsEnabled"
+           ng-minlength="{{[FIELD].Settings.MinLength}}"
+           ng-maxlength="{{[FIELD].Settings.MaxLength}}"
+           ng-keypress="[FIELDNAME]OnKeyPress($event,[FIELD])"
+           ng-blur="[FIELDNAME]_OnBlur($event)"
+           placeholder="{{[FIELD].Settings.Placeholder}}"
+           class="{{[FIELD].Settings.InputCssClass}}" />
+    <span class="input-group-addon" ng-if="[FIELD].Settings.IconPosition=='right'"><i class="{{[FIELD].Settings.FontIcon}}"></i></span>
+</div>

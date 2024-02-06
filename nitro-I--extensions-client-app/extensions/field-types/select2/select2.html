@@ -1,0 +1,9 @@
+﻿<div class="select2-group-icon">
+    <select class="form-select" id="select2[FIELDNAME]" ng-if="[FIELD].select2Options " ui-select2="[FIELD].select2Options" ng-model="[FIELD].Value" ng-options="item.[[Settings.DataSource.ValueField]] as item.[[Settings.DataSource.TextField]] for item in [FIELD].DataSource.Items"
+        data-theme="group-icon" data-dir="rtl" data-placeholder="[[Settings.Placeholder]]">
+        <option></option>
+    </select>
+    <span class="input-icon input-icon--[[Settings.IconPosition]]">
+        <i class="[[Settings.FontIcon]]"></i>
+    </span>
+</div>

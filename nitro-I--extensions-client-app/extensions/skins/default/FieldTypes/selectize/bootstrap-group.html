@@ -1,0 +1,14 @@
+﻿<div class="input-group" ng-if="[FIELD].Settings.DataSource.TextField">
+    <span class="input-group-addon" ng-if="[FIELD].Settings.IconPosition=='left'"><i class="{{[FIELD].Settings.FontIcon}}"></i></span>
+    <div class="{{[FIELD].Settings.DropdownCssClass}}" style="z-index:auto">
+        <selectize class="w-100p"
+                   config="{
+                    valueField:[FIELD].Settings.DataSource.ValueField,
+                    labelField:[FIELD].Settings.DataSource.TextField,
+                    searchField: [[FIELD].Settings.DataSource.TextField],
+                    plugins: ['remove_button']}"
+                   placeholder="{{[FIELD].Settings.Placeholder}}" multiple="[FIELD].Settings.AllowMultiple"
+                   options="[FIELD].Options" ng-model="[FIELD].Value"></selectize>
+    </div>
+    <span class="input-group-addon" ng-if="[FIELD].Settings.IconPosition=='right'"><i class="{{[FIELD].Settings.FontIcon}}"></i></span>
+</div>

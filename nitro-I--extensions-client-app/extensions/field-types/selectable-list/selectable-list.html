@@ -1,0 +1,6 @@
+<div class="radio-list">
+    <div ng-repeat="option in [FIELD].DataSource.Items" class="radio-item">
+        <input id="rd-selectable-item-{{$index}}" type="radio" name="selectable_[FIELDID]" ng-value="option[[FIELD].Settings.DataSource.ValueField]" ng-model="[FIELD].Value">
+        <label for="rd-selectable-item-{{$index}}">{{option[[FIELD].Settings.DataSource.TextField]}}</label>
+    </div>
+</div>

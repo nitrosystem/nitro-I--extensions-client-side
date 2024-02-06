@@ -1,0 +1,30 @@
+.b-radio-list {
+  display: flex;
+}
+
+.b-radio-list > .b-radio {
+  margin-left: 1.5rem;
+}
+
+.b-radio-list .b-radio > label {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.b-radio-list .b-radio > label > input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  opacity: 0;
+}
+
+.b-radio-list .b-radio > label > i {
+  font-size: 1.5rem;
+  margin-left: 0.3rem;
+}

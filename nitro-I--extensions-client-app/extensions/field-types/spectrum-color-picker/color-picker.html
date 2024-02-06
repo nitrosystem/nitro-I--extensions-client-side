@@ -1,0 +1,6 @@
+﻿<input type="text" id="colorPicker[FIELDNAME]"
+       ng-model="[FIELD].Value"
+       ng-disabled="![FIELD].IsEnabled"
+       placeholder="{{[FIELD].Settings.Placeholder}}"
+       class="form-control {{[FIELD].Settings.InputCssClass}}"
+       ng-class="{'is-invalid':[FIELD].Validated && ([FIELD].RequiredError || ![FIELD].IsValid)}" />

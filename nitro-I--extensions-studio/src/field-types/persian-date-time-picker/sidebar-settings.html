@@ -1,0 +1,50 @@
+﻿<div class="b-field">
+    <label class="form-label">Placeholder</label>
+    <input type="text" ng-model="$.currentField.Settings.Placeholder" class="b-input form-control" />
+</div>
+<div class="b-field">
+    <label class="form-label">Input Css Class</label>
+    <input type="text" ng-model="$.currentField.Settings.InputCssClass" class="b-input form-control"
+        placeholder="Input css class" />
+</div>
+<div class="b-field">
+    <label class="form-label">Icon Position</label>
+    <input type="text" ng-model="$.currentField.Settings.IconPosition" class="b-input form-control" />
+</div>
+<div class="b-field">
+    <label class="form-label">Font Icon</label>
+    <input type="text" ng-model="$.currentField.Settings.FontIcon" class="b-input form-control" />
+</div>
+<div class="b-field">
+    <label class="form-label">Auto Close</label>
+    <label class="b-switch d-block">
+        <input type="checkbox" hidden="hidden" ng-model="$.currentField.Settings.AutoClose" />
+        <div class="slider"></div>
+    </label>
+</div>
+<div class="b-field">
+    <label>Calendar Type</label>
+    <select ng-model="$.currentField.Settings.CalendarType" class="b-input form-control"
+        placeholder-text-single="'Select calendar type'" required>
+        <option disabled></option>
+        <option value="gregorian">Gregorian</option>
+        <option value="jalali">Jalali</option>
+    </select>
+</div>
+<div class="b-field">
+    <label class="form-label">Format</label>
+    <input ng-model="$.currentField.Settings.Format" class="b-input form-control" placeholder="Example YYYY/MM/DD" />
+</div>
+<div class="b-field">
+    <label class="form-label">Date & Time</label>
+    <select ng-model="$.currentField.Settings.DateType" class="b-input form-control"
+        placeholder-text-single="'Select date type'" required>
+        <option disabled></option>
+        <option value="datetime">Date & Time</option>
+        <option value="date">Date</option>
+    </select>
+</div>
+<div class="b-field">
+    <label class="form-label">Min Date</label>
+    <input ng-model="$.currentField.Settings.MinDate" class="b-input form-control" placeholder="Enter min date" />
+</div>

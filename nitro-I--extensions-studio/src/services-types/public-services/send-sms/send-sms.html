@@ -1,0 +1,134 @@
+﻿<div class="send-sms-service">
+    <!------------------------------------>
+    <!--Service Params-->
+    <!------------------------------------>
+    <div class="b-group">
+        <div class="group-header" data-bs-toggle="collapse" data-bs-target="#grpServiceParams">
+            <h3 class="group-label">
+                <span class="group-icon">
+                    <i class="codicon codicon-server-process"></i>
+                </span> Service Params
+            </h3>
+            <span class="group-collapse">
+                <i class="codicon codicon-chevron-up"></i>
+            </span>
+        </div>
+        <div id="grpServiceParams" class="group-content collapse show">
+            <table class="table table-bordered table-dark table-columns-vmiddle">
+                <thead>
+                    <tr>
+                        <th>Param Name</th>
+                        <th>Param Type</th>
+                        <th>Default Value</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="param in $.service.Params | orderBy : 'ViewOrder'">
+                        <td>
+                            <input type="text" ng-model="param.ParamName" class="b-input form-control" />
+                        </td>
+                        <td>
+                            <input type="text" ng-model="param.ParamType" class="b-input form-control" />
+                        </td>
+                        <td>
+                            <input type="text" ng-model="param.DefaultValue" class="b-input form-control" />
+                        </td>
+                        <td>
+                            <input type="number" ng-model="param.ViewOrder" class="b-input form-control" />
+                        </td>
+                        <td style="width:25px;">
+                            <button class="btn btn-sm btn-default" ng-click="$.service.Params.splice($index,1)">
+                                <i class="codicon codicon-trash text-white"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="3">
+                            <button type="button" class="b-btn btn-sm" ng-click="$.onAddServiceParamClick()">
+                                <i class="codicon codicon-plus me-0"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+            <div ng-if="!$.service.Params.length&&1==2" class="b-notify notify-warning mb-4">
+                <i class="codicon codicon-info b-icon-2"></i>
+                <div class="text">
+                    <h4 class="label">No service params.</h4>
+                    <span class="subtext">
+                        Click
+                        <button type="button" class="b-btn btn-sm ms-2 me-2" ng-click="$.onAddServiceParamClick()">Add
+                            Param </button> for creating service param(s).
+                        entity.
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="b-field">
+        <label class="form-label">Provider Name</label>
+        <div class="b-input-group">
+            <input type="text" class="b-input form-control" ng-model="$.service.Settings.Provider" autocomplete="off" required />
+            <span><i class="codicon codicon-gear"></i></span>
+        </div>
+    </div>
+    <div class="b-field">
+        <label class="form-label">Mobile</label>
+        <div class="b-input-group">
+            <input type="text" class="b-input form-control" ng-model="$.service.Settings.Mobile" autocomplete="off" required />
+            <span><i class="codicon codicon-gear"></i></span>
+        </div>
+    </div>
+    <div class="b-field">
+        <label class="form-label">Message</label>
+        <div class="b-input-group">
+            <input type="text" class="b-input form-control" ng-model="$.service.Settings.Message" autocomplete="off" required />
+            <span><i class="codicon codicon-gear"></i></span>
+        </div>
+    </div>
+    <div class="b-field">
+        <label class="form-label">Tokens</label>
+        <div class="b-input-group">
+            <table class="table table-bordered table-dark table-columns-vmiddle">
+                <thead>
+                    <tr>
+                        <th>Token Name</th>
+                        <th>Token Value</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="param in $.service.Settings.Tokens | orderBy : 'TokenType'">
+                        <td>
+                            <input type="text" ng-model="param.TokenName" class="b-input form-control" />
+                        </td>
+                        <td>
+                            <input type="number" ng-model="param.TokenType" class="b-input form-control" min="0" max="255" />
+                        </td>
+                        <td>
+                            <input type="text" ng-model="param.TokenValue" class="b-input form-control" />
+                        </td>
+                        <td style="width:25px;">
+                            <button class="btn btn-sm btn-default" ng-click="$.service.Settings.Tokens.splice($index,1)">
+                                <i class="codicon codicon-trash text-white"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="3">
+                            <button type="button" class="b-btn btn-sm" ng-click="$.onAddServiceTokensClick()">
+                                <i class="codicon codicon-plus me-0"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>

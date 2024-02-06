@@ -1,0 +1,8 @@
+﻿<div ng-repeat="option in [FIELD].DataSource.Items" class="b-checkbox">
+    <label>
+        <input type="checkbox" ng-value="option.Value" ng-model="option.Selected" ng-change="bCheckBoxList_onOptionChange([FIELD])" />
+        {{option[[FIELD].Settings.DataSource.TextField]}}
+    </label>
+</div>
+
+

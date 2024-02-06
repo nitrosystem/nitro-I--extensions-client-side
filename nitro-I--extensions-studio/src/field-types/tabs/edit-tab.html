@@ -1,0 +1,78 @@
+<b-right-widget ng-if="$.workingMode=='edit-tab'" data-title="Edit Tab" data-icon="notebook-template"
+    data-subtitle="Add or edit grid tab" data-await-action="$.awaitAction">
+    <div class="d-flex">
+        <div class="col-7 b-splitter border-end pe-3">
+            <div class="b-field">
+                <label class="form-label">Tab Name</label>
+                <div class="b-input-group">
+                    <input type="text" id="txtTabName" class="b-input form-control" ng-model="$.tab.Name"
+                        placeholder="Enter tab name" autocomplete="off" required />
+                    <span><i class="codicon codicon-gear"></i></span>
+                </div>
+            </div>
+            <div class="b-field">
+                <label class="form-label">Tab Title</label>
+                <div class="b-input-group">
+                    <input type="text" id="txtTabTitle" class="b-input form-control" ng-model="$.tab.Title"
+                        placeholder="Enter tab title" autocomplete="off" required />
+                    <span><i class="codicon codicon-gear"></i></span>
+                </div>
+            </div>
+        </div>
+        <div class="col-5 ps-3">
+            <div class="b-field">
+                <label class="form-label">Tab Pane Css Class</label>
+                <div class="b-input-group">
+                    <input type="text" class="b-input form-control" ng-model="$.tab.PaneCssClass"
+                        placeholder="Enter tab pane css class" autocomplete="off" />
+                    <span><i class="codicon codicon-gear"></i></span>
+                </div>
+            </div>
+            <div class="b-field">
+                <label class="form-label">Tab Icon</label>
+                <div class="b-input-group">
+                    <input type="text" class="b-input form-control" ng-model="$.tab.Icon" placeholder="Enter tab icon"
+                        autocomplete="off" required />
+                    <span><i class="codicon codicon-gear"></i></span>
+                </div>
+            </div>
+            <div class="b-field">
+                <label class="form-label">View Order</label>
+                <div class="b-input-group">
+                    <input type="number" class="b-input form-control" ng-model="$.tab.ViewOrder"
+                        placeholder="Enter tab view order" autocomplete="off" />
+                    <span><i class="codicon codicon-list-ordered"></i></span>
+                </div>
+            </div>
+            <div class="b-field">
+                <label class="form-label">Description</label>
+                <div class="b-input-group">
+                    <textarea ng-model="$.tab.Description" class="b-input form-control" rows="2"
+                        placeholder="Enter tab description"></textarea>
+                    <span class="my-auto"><i class="codicon codicon-debug-stackframe-active"></i></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="b-field">
+        <label class="form-label">Show Condition(s)</label>
+        <b-condition-list ng-model="$.tab.ShowConditions" data-source="['fields','form','variables','actionParams']"
+            data-variables="variables" data-fields="fields" data-action-params="$.action.Params"></b-condition-list>
+    </div>
+    <div class="b-field">
+        <label class="form-label">Enable Condition(s)</label>
+        <b-condition-list ng-model="$.tab.EnableConditions" data-source="['fields','form','variables','actionParams']"
+            data-variables="variables" data-fields="fields" data-action-params="$.action.Params"></b-condition-list>
+    </div>
+    <hr class="mb-4" />
+    <div class="mb-1 d-flex justify-content-end mt-auto">
+        <button type="button" class="b-btn btn-submit me-2" ng-click="$.onSaveTabClick()">
+            <i class="codicon codicon-save"></i>
+            Save Tab
+        </button>
+        <button type="button" class="b-btn btn-cancel" ng-click="$.onCancelTabClick()">
+            <i class="codicon codicon-circle-slash"></i>
+            Cancel
+        </button>
+    </div>
+</b-right-widget>

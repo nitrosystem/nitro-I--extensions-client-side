@@ -1,0 +1,23 @@
+﻿<div class="b-grid-responsive">
+    <table class="b-grid-table">
+        <thead>
+            <tr>
+                <th ng-repeat="column in [FIELD].Settings.Columns" class="grid-header-column {{column.ColumnCss}}" style="{{column.ColumnStyle}}" ng-bind-html="column.Title"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="row in [FIELD].DataSource.Items" ng-class="{'il-row-even':$even}" id="bGridRow{{$index}}_[FIELDNAME]">
+                <td ng-repeat="column in [FIELD].Settings.Columns" class="grid-body-column {{column.ColumnCss}}" style="{{column.ColumnStyle}}">
+                    <b-grid-row-item module="moduleController" row="row" column="column" content="{{column.Content}}"></b-grid-row-item>
+                </td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <th colspan="{{[FIELD].Settings.Columns.length}}" ng-if="[FIELD].Settings.EnablePaging">
+                    <ul id="paging[FIELDNAME]" class="pagination"></ul>
+                </th>
+            </tr>
+        </tfoot>
+    </table>
+</div>

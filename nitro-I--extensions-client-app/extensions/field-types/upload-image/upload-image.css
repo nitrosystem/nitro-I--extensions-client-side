@@ -1,0 +1,127 @@
+﻿
+/* --------------------------------------------------------
+        Upload Photo(Image)
+    -----------------------------------------------------------*/
+.b-upload-image {
+    margin-bottom: 10px;
+}
+
+    .b-upload-image .box-upload {
+        border: solid 1px #ccc;
+        float: right;
+        width: 150px;
+        height: 120px;
+        margin-left: 10px;
+        text-align: center;
+        position: relative;
+    }
+
+        .b-upload-image .box-upload > input[type=file] {
+            cursor: pointer;
+            opacity: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 9;
+        }
+
+        .b-upload-image .box-upload > i {
+            position: absolute;
+            left: 35%;
+            top: 18%;
+            font-size: 50px;
+            color: gray;
+        }
+
+        .b-upload-image .box-upload > span {
+            position: absolute;
+            right: 0;
+            bottom: 10px;
+            font-size: 15px;
+            font-weight: 600;
+            color: #aaa;
+            width: 100%;
+            text-align: center;
+        }
+
+    .b-upload-image .photo-error {
+        position: absolute;
+        left: 0;
+        top: 0;
+        color: #fff;
+        width: 100%;
+        line-height: 2;
+        padding: 5px;
+        height: 100%;
+        background: rgba(52, 52, 52, 0.84);
+    }
+
+    .b-upload-image .box-image {
+        border: solid 1px #ccc;
+        float: right;
+        width: 150px;
+        height: 120px;
+        margin-right: 10px;
+        margin-bottom: 10px;
+        position: relative;
+        overflow: hidden;
+    }
+
+        .b-upload-image .box-image .is-main {
+            position: absolute;
+            right: 20px;
+            top: 0;
+            font-size: 125px;
+            opacity: 0.2;
+            color: green;
+        }
+
+        .b-upload-image .box-image .bu-actions {
+            background-color: rgba(38, 35, 35, 0.13);
+            color: #fff;
+            width: 100%;
+            position: absolute;
+            text-align: right;
+            right: 0;
+            padding: 5px 10px;
+            font-size: 17px;
+            top: 0;
+        }
+
+            .b-upload-image .box-image .bu-actions > i {
+                cursor: pointer;
+            }
+
+                .b-upload-image .box-image .bu-actions > i.btn-main {
+                    display: none;
+                }
+
+        .b-upload-image .box-image:hover .bu-actions > i.btn-main {
+            display: block;
+        }
+
+        .b-upload-image .box-image > img {
+            width: 100%;
+            min-height: 100%;
+            max-height: 130%;
+        }
+
+        .b-upload-image .box-image .bu-progress {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 10px;
+            text-align: center;
+            background-color: #ffffff82;
+            font-size: 11px;
+        }
+
+            .b-upload-image .box-image .bu-progress > span {
+                position: absolute;
+                left: 0;
+                top: 0;
+                height: 100%;
+            }

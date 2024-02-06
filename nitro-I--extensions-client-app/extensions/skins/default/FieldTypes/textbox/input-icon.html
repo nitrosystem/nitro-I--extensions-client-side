@@ -1,0 +1,37 @@
+﻿<div class="input-icon input-icon--{{[FIELD].Settings.IconPosition}}">
+    <input type="{{[FIELD].Settings.InputType}}"
+           id="bTextbox[FIELDNAME]"
+           ng-model="[FIELD].Value"
+           ng-disabled="![FIELD].IsEnabled"
+           ng-minlength="{{[FIELD].Settings.MinLength}}"
+           ng-maxlength="{{[FIELD].Settings.MaxLength}}"
+           ng-keypress="bTextBox_onKeyPress([FIELD],$event)"
+           ng-blur="bTextBox_onBlur([FIELD],$event)"
+           ng-focus="bTextBox_onFocus([FIELD],$event)"
+           placeholder="{{[FIELD].Settings.Placeholder}}"
+           class="{{[FIELD].Settings.InputCssClass}}"
+           ng-class="{'is-invalid':[FIELD].Validated && [FIELD].RequiredError}" />
+    <span class="input-icon input-icon--{{[FIELD].Settings.IconPosition}}">
+        <i class="{{[FIELD].Settings.FontIcon}}"></i>
+    </span>
+    <span ng-if="[FIELD].Settings.InputType=='password' || [FIELD].Settings.StayTogglePassword" class="f-20 zmdi zmdi-eye" ng-click="bTextBox_onTogglePassword([FIELD])" style="position: absolute;top: 12px;left: 12px;cursor: pointer;z-index: 999;"></span>
+</div>
+
+<style type="text/css">
+    .input-icon {
+        position: relative;
+    }
+
+        .input-icon > input {
+            padding-right: 30px;
+        }
+
+        .input-icon .input-icon {
+            position: absolute;
+            right: 10px;
+            top: 5px;
+            font-size: 22px;
+            opacity: .5;
+            color: #adadad;
+        }
+</style>

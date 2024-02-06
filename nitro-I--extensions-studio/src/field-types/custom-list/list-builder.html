@@ -1,0 +1,64 @@
+<div class="modal fade b-modal-dark" b-custom-modal id="wnListBuilder" data-bs-focus="false" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalToggleLabel">List Builder</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!------------------------------------>
+                <!--Data Source-->
+                <!------------------------------------>
+                <div class="b-group">
+                    <div class="group-header" data-bs-toggle="collapse" data-bs-target="#grpDataSource">
+                        <h3 class="group-label">
+                            <span class="group-icon">
+                                <i class="codicon codicon-server-process"></i>
+                            </span>
+                            Data Source
+                        </h3>
+                        <span class="group-collapse">
+                            <i class="codicon codicon-chevron-up"></i>
+                        </span>
+                    </div>
+                    <div id="grpDataSource" class="group-content collapse show">
+                        <div ng-if="!$.field.Settings.DataSource || !$.field.Settings.DataSource.Type"
+                            class="b-notify notify-warning mb-4">
+                            <i class="codicon codicon-info b-icon-2"></i>
+                            <div class="text">
+                                <h4 class="label">The list data source is not selected!.</h4>
+                                <span class="subtext">
+                                    Click
+                                    <button type="button" class="b-btn btn-action ms-2 me-2 d-inline-block"
+                                        ng-click="$.onShowDataSourceClick()">Here</button>
+                                    to set data source.
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!------------------------------------>
+                <!--Data Source-->
+                <!------------------------------------>
+                <div class="b-group">
+                    <div class="group-header" data-bs-toggle="collapse" data-bs-target="#grpDataSource">
+                        <h3 class="group-label">
+                            <span class="group-icon">
+                                <i class="codicon codicon-server-process"></i>
+                            </span>
+                            Data Source
+                        </h3>
+                        <span class="group-collapse">
+                            <i class="codicon codicon-chevron-up"></i>
+                        </span>
+                    </div>
+                    <div id="grpDataSource" class="group-content collapse show">
+                        <div style="height: 2000px"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>

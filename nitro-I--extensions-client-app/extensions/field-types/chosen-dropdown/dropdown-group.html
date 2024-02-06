@@ -1,0 +1,11 @@
+﻿<div class="b-input-group">
+    <select  ng-model="[FIELD].Value" class="{{[FIELD].Settings.DropdownCssClass}}"
+            ng-disabled="![FIELD].IsEnabled" chosen
+            placeholder-text-single="[[Settings.Placeholder]]">
+        <option ng-if="[FIELD].Settings.ShowAll && [FIELD].Options.length" value="">{{[FIELD].Settings.AllText}}</option>
+        <option ng-if="[FIELD].DataSource.Items.length" ng-repeat="option in [FIELD].DataSource.Items" ng-value="option.[[Settings.DataSource.ValueField]]" ng-selected="[FIELD].Value == option.[[Settings.DataSource.ValueField]]">{{option.[[Settings.DataSource.TextField]]}}</option>
+    </select>
+    <span class="input-icon input-icon--{{[FIELD].Settings.IconPosition}}">
+        <i class="{{[FIELD].Settings.FontIcon}}"></i>
+    </span>
+</div>

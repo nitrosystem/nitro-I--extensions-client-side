@@ -1,0 +1,42 @@
+﻿{
+  "Title": "Default",
+  "BaseCssFiles": [],
+  "BaseJsFiles": [],
+  "Themes": [],
+  "FormTemplates": [
+    {
+      "TemplateName": "Default",
+      "Title": "Default",
+      "TemplateImage": "[ModulePath]/Extensions/basic/skins/default/assets/images/template.jpg",
+      "LayoutTemplatePath": "[ModulePath]/Extensions/basic/skins/default/templates/form/default.html",
+      "Description": "Metronic theme is a power full and most popular for dashboard theme",
+      "BodyOptions": {},
+      "CssFiles": [],
+      "JsFiles": []
+    }
+  ],
+  "ListTemplates": [
+    {
+      "TemplateName": "Default",
+      "Title": "Default",
+      "TemplateImage": "[ModulePath]/Extensions/basic/skins/default/assets/images/template.jpg",
+      "LayoutTemplatePath": "[ModulePath]/Extensions/basic/skins/default/templates/list/default.html",
+      "Description": "Metronic theme is a power full and most popular for dashboard theme",
+      "BodyOptions": {},
+      "CssFiles": [],
+      "JsFiles": []
+    }
+  ],
+  "DetailsTemplates": [
+    {
+      "TemplateName": "Default",
+      "Title": "Default",
+      "TemplateImage": "[ModulePath]/Extensions/basic/skins/default/assets/images/template.jpg",
+      "LayoutTemplatePath": "[ModulePath]/Extensions/basic/skins/default/templates/details/default.html",
+      "Description": "Metronic theme is a power full and most popular for dashboard theme",
+      "BodyOptions": {},
+      "CssFiles": [],
+      "JsFiles": []
+    }
+  ]
+}

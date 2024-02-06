@@ -1,0 +1,389 @@
+<div class="create-service-webservice">
+    <!------------------------------------>
+    <!--Service Params-->
+    <!------------------------------------>
+    <div class="b-group">
+        <div class="group-header" data-bs-toggle="collapse" data-bs-target="#grpServiceParams">
+            <h3 class="group-label">
+                <span class="group-icon">
+                    <i class="codicon codicon-server-process"></i>
+                </span> Service Params
+            </h3>
+            <span class="group-collapse">
+                <i class="codicon codicon-chevron-up"></i>
+            </span>
+        </div>
+        <div id="grpServiceParams" class="group-content collapse show">
+            <table class="table table-bordered table-dark table-columns-vmiddle">
+                <thead>
+                    <tr>
+                        <th>Param Name</th>
+                        <th>Param Type</th>
+                        <th>Default Value</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="param in $.service.Params | orderBy : 'ViewOrder'">
+                        <td>
+                            <input type="text" ng-model="param.ParamName" class="b-input form-control" />
+                        </td>
+                        <td>
+                            <input type="text" ng-model="param.ParamType" class="b-input form-control" />
+                        </td>
+                        <td>
+                            <input type="text" ng-model="param.DefaultValue" class="b-input form-control" />
+                        </td>
+                        <td>
+                            <input type="number" ng-model="param.ViewOrder" class="b-input form-control" />
+                        </td>
+                        <td style="width:25px;">
+                            <button class="btn btn-sm btn-default" ng-click="$.service.Params.splice($index,1)">
+                                <i class="codicon codicon-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="3">
+                            <button type="button" class="b-btn btn-sm" ng-click="$.onAddServiceParamClick()">
+                                <i class="codicon codicon-plus me-0"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+            <div ng-if="!$.service.Params.length&&1==2" class="b-notify notify-warning mb-4">
+                <i class="codicon codicon-info b-icon-2"></i>
+                <div class="text">
+                    <h4 class="label">No service params.</h4>
+                    <span class="subtext">
+                        Click
+                        <button type="button" class="b-btn btn-sm ms-2 me-2" ng-click="$.onAddServiceParamClick()">Add
+                            Param </button> for creating service param(s).
+                        entity.
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!------------------------------------>
+    <!--start  method & url-->
+    <!------------------------------------>
+    <div class="d-flex mb-3">
+        <div class="col-2">
+            <select class="b-input form-select border-end-0 rounded-0 rounded-start" ng-model="$.service.Settings.Method">
+                <option value="">Service method</option>
+                <option value="GET">GET</option>
+                <option value="POST">POST</option>
+            </select>
+        </div>
+        <div class="col-10">
+            <input type="text" ng-model="$.service.Settings.Url" class="b-input form-control rounded-0 rounded-end" placeholder="Service url">
+        </div>
+    </div>
+    <!------------------------------------>
+    <!--end  method & url-->
+    <!------------------------------------>
+    <!------------------------------------>
+    <!--start  webservice tabs-->
+    <!------------------------------------>
+    <div class="tabs-container pb-3">
+        <ul class="nav nav-tabs b-tab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="params-tab{{$.service.ServiceID}}" data-bs-toggle="tab" data-bs-target="#params{{$.service.ServiceID}}" type="button" role="tab" aria-controls="params{{$.service.ServiceID}}" aria-selected="true">Params</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="authorization-tab{{$.service.ServiceID}}" data-bs-toggle="tab" data-bs-target="#authorization{{$.service.ServiceID}}" type="button" role="tab" aria-controls="authorization{{$.service.ServiceID}}" aria-selected="false">Authorization</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="headers-tab{{$.service.ServiceID}}" data-bs-toggle="tab" data-bs-target="#headers{{$.service.ServiceID}}" type="button" role="tab" aria-controls="headers{{$.service.ServiceID}}" aria-selected="false">Headers</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="body-tab{{$.service.ServiceID}}" data-bs-toggle="tab" data-bs-target="#body{{$.service.ServiceID}}" type="button" role="tab" aria-controls="body{{$.service.ServiceID}}" aria-selected="false">Body</button>
+            </li>
+        </ul>
+        <div class="tab-content p-0 mb-4">
+            <div class="tab-pane p-5 fade show active" id="params{{$.service.ServiceID}}" role="tabpanel" aria-labelledby="params-tab{{$.service.ServiceID}}">
+                <!------------------------------------>
+                <!--Start  params tab-->
+                <!------------------------------------>
+                <div class="mt-4">
+                    <h6 class="mb-3">Query Params</h6>
+                    <table class="table table-dark table-bordered b-table-light">
+                        <thead>
+                            <tr>
+                                <th>KEY</th>
+                                <th>VALUE</th>
+                                <th width="45px">...</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="item in $.service.Settings.Params">
+                                <td>
+                                    <input type="text" ng-model="item.ParamName" class="b-input form-control" placeholder="Key">
+                                </td>
+                                <td>
+                                    <input type="text" ng-model="item.ParamValue" class="b-input form-control" placeholder="Value">
+                                </td>
+                                <td>
+                                    <button type="button" class="btn btn-default" ng-click="$.service.Settings.Params.splice($index,1)">
+                                        <i class="codicon codicon-trash text-white"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th colspan="3">
+                                    <button type="button" class="btn btn-primary" ng-click="$.service.Settings.Params.push({})">
+                                        <i class="codicon codicon-add"></i>
+                                    </button>
+                                </th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+                <!------------------------------------>
+                <!--end  params tab-->
+                <!------------------------------------>
+            </div>
+            <div class="tab-pane p-5 fade" id="authorization{{$.service.ServiceID}}" role="tabpanel" aria-labelledby="authorization-tab{{$.service.ServiceID}}">
+                <!------------------------------------>
+                <!--Start  Authorization tab-->
+                <!------------------------------------>
+                <div class="mt-4">
+                    <div class="row align-items-center">
+                        <!-- start  Authorization left-->
+                        <div class="col-6 border-end">
+                            <!-- start  authorization left > select type -->
+                            <div class="b-field">
+                                <label class="form-label">Type</label>
+                                <select ng-model="$.service.Settings.Authorization.Type" class="b-input form-select mb-2">
+                                    <option value="">No Auth</option>
+                                    <option value="Bearer">Bearer Token</option>
+                                    <option value="Basic">Basic Auth</option>
+                                </select>
+                                <!-- start  authorization left > Description type -->
+                                <!--start  left type > BearerToken-->
+                                <small ng-if="$.service.Settings.Authorization.Type=='Bearer'">
+                                    The authorization header will be automatically generated when you send the
+                                    request.
+                                </small>
+                                <!--end  left type > BearerToken-->
+                                <!--start  left type > BasicAuth-->
+                                <small ng-if="$.service.Settings.Authorization.Type=='Basic'">
+                                    The authorization header will be automatically generated when you send the
+                                    request.
+                                </small>
+                                <!--end  left type > BasicAuth-->
+                                <!-- end  authorization left > Description type -->
+                            </div>
+                            <!-- end  authorization left > select type -->
+                        </div>
+                        <!-- end  Authorization left-->
+                        <!-- start  Authorization right-->
+                        <div class="col-6">
+                            <!-- right  type > NoAuth-->
+                            <small ng-if="!$.service.Settings.Authorization.Type" class="authorization-description">
+                                This request does not use any authorization.
+                            </small>
+                            <!-- right  type > BearerToken-->
+                            <div ng-if="$.service.Settings.Authorization.Type=='Bearer'">
+                                <div class="b-field">
+                                    <label class="form-label">Token</label>
+                                    <textarea ng-model="$.service.Settings.Authorization.Bearer" class="b-input form-control" rows="2" placeholder="Token"></textarea>
+                                </div>
+                            </div>
+                            <!-- right  type > BasicAuth-->
+                            <div ng-if="$.service.Settings.Authorization.Type=='Basic'">
+                                <div class="b-field">
+                                    <label class="form-label">Username</label>
+                                    <input type="text" class="b-input form-control" placeholder="Username" ng-model="$.service.Settings.Authorization.BasicAuth.Username">
+                                </div>
+                                <div class="b-field">
+                                    <label class="form-label">Password</label>
+                                    <input type="password" class="b-input form-control" placeholder="Password" ng-model="$.service.Settings.Authorization.BasicAuth.Password">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end  Authorization rigth -->
+                    </div>
+
+                </div>
+                <!------------------------------------>
+                <!--end  Authorization tab-->
+                <!------------------------------------>
+            </div>
+            <div class="tab-pane p-5 fade" id="headers{{$.service.ServiceID}}" role="tabpanel" aria-labelledby="headers-tab{{$.service.ServiceID}}">
+                <!------------------------------------>
+                <!--Start  Headers tab-->
+                <!------------------------------------>
+                <div class="mt-4">
+                    <!--start Default Headers-->
+                    <div class="form-section theme-default">
+                        <input type="checkbox" checked />
+                        <div class="header">
+                            <h6 class="pb-2">Default Headers</h6>
+                        </div>
+                        <fieldset>
+                            <table class="table table-dark table-bordered b-table-light">
+                                <thead>
+                                    <tr>
+                                        <th width="32px"></th>
+                                        <th>KEY</th>
+                                        <th>VALUE</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    <tr ng-repeat="item in $.service.Settings.Headers | filter:{IsSystem: true}">
+                                        <td>
+                                            <div class="b-checkbox">
+                                                <label>
+                                                    <input type="checkbox" ng-model="item.IsSelected" />
+                                                    <i class="input-helper"></i>
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td><span>{{item.ParamName}}</span></td>
+                                        <td>
+                                            <input type="text" ng-model="item.ParamValue" class="b-input form-control" placeholder="Value" />
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </fieldset>
+                    </div>
+                    <!--end  Default Headers-->
+                    <!--start  Custom Headers-->
+                    <div class="form-section theme-default">
+                        <input type="checkbox" />
+                        <div class="header">
+                            <h6 class="pb-2">Custom Headers</h6>
+                        </div>
+                        <fieldset>
+                            <table class="table table-dark table-bordered b-table-light">
+                                <thead>
+                                    <tr>
+                                        <th>KEY</th>
+                                        <th>VALUE</th>
+                                        <th width="45px">...</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="item in $.service.Settings.Headers" ng-if="!item.IsSystem">
+                                        <td>
+                                            <input type="text" ng-model="item.ParamName" class="b-input form-control" placeholder="Key">
+                                        </td>
+                                        <td>
+                                            <input type="text" ng-model="item.ParamValue" class="b-input form-control" placeholder="Value">
+                                        </td>
+                                        <td>
+                                            <button type="button" class="btn btn-default" ng-click="$.service.Settings.Headers.splice($index,1)">
+                                                <i class="codicon codicon-trash text-white"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th colspan="3">
+                                            <button type="button" class="btn btn-primary" ng-click="$.service.Settings.Headers.push({})">
+                                                <i class="codicon codicon-add"></i>
+                                            </button>
+                                        </th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </fieldset>
+                    </div>
+                    <!--end  Custom Headers-->
+                </div>
+                <!------------------------------------>
+                <!--end  Headers tab-->
+                <!------------------------------------>
+            </div>
+            <div class="tab-pane p-5 fade" id="body{{$.service.ServiceID}}" role="tabpanel" aria-labelledby="body-tab{{$.service.ServiceID}}">
+                <!------------------------------------>
+                <!--Start  Body tab-->
+                <!------------------------------------>
+                <div class="mt-4">
+                    <div class="b-radio">
+                        <label class="mr-3">
+                            <input type="radio" name="WebserviceBodyTab" ng-value=""
+                                   ng-model="$.service.Settings.BodyType" />
+                            <i class="input-helper"></i>none
+                        </label>
+                        <label class="mr-3">
+                            <input type="radio" name="WebserviceBodyTab" ng-value="'FormData'"
+                                   ng-model="$.service.Settings.BodyType" />
+                            <i class="input-helper"></i>form-data
+                        </label>
+                        <label>
+                            <input type="radio" name="WebserviceBodyTab" ng-value="'Raw'"
+                                   ng-model="$.service.Settings.BodyType" />
+                            <i class="input-helper"></i>row
+                        </label>
+                    </div>
+
+                    <hr class="mb-4 mt-0" />
+
+                    <div>
+
+                        <small ng-if="!$.service.Settings.BodyType">this request does not have a body</small>
+
+                        <div ng-if="$.service.Settings.BodyType=='FormData'">
+                            <table class="table table-dark table-bordered b-table-light">
+                                <thead>
+                                    <tr>
+                                        <th>KEY</th>
+                                        <th>VALUE</th>
+                                        <th width="45px">...</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <input type="text" class="b-input form-control" placeholder="key">
+                                        </td>
+                                        <td>
+                                            <input type="text" class="b-input form-control" placeholder="value">
+                                        </td>
+                                        <td>
+                                            <button type="button" class="btn btn-default">
+                                                <i class="codicon codicon-trash text-white"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th colspan="3">
+                                            <button type="button" class="btn btn-primary">
+                                                <i class="codicon codicon-add"></i>
+                                            </button>
+                                        </th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+
+                        <div class="mb-3" ng-if="$.service.Settings.BodyType=='Raw'">
+                            <textarea ng-model="$.service.Settings.BodyRaw" class="b-input form-control" rows="3"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <!------------------------------------>
+                <!--end  Body tab-->
+                <!------------------------------------>
+            </div>
+        </div>
+    </div>
+    <!------------------------------------>
+    <!--end  webservice tabs-->
+    <!------------------------------------>
+</div>

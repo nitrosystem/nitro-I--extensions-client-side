@@ -1,0 +1,10 @@
+﻿<div class="b-radio-list">
+    <div ng-repeat="option in [FIELD].DataSource.Items" class="b-radio">
+        <label>
+            <input type="radio" name="bRadio_[FIELDID]" ng-value="option[[FIELD].Settings.DataSource.ValueField]"  ng-model="[FIELD].Value"  />
+            <i ng-if="[FIELD].Value!=option[[FIELD].Settings.DataSource.ValueField]" class="bi bi-circle"></i>
+            <i ng-if="[FIELD].Value==option[[FIELD].Settings.DataSource.ValueField]" class="bi bi-record-circle"></i>
+            {{option[[FIELD].Settings.DataSource.TextField]}}
+        </label>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+﻿<nav>
+    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+        <button type="button" class="nav-link" data-bs-toggle="tab" data-bs-target="#bTab{{FIELDNAME}}{{$index}}" role="tab" ng-repeat="tab in [FIELD].Settings.Tabs | orderBy:'ViewOrder'" ng-click="bTabs_onTabClick([FIELD],tab,$event)" ng-class="{'active':[FIELD].Settings.CurrentTab==tab.Name,'opacity-50  disabled':!tab.IsEnable}">
+        <span class="nav-icon" ng-if="tab.Icon"><i class="{{tab.Icon}}"></i></span>
+        <span class="nav-text">{{tab.Title}}</span>
+    </button>
+    </div>
+</nav>
+<div class="tab-content" id="nav-tabContent">
+    [FIELDPANES,attrs=role="tabpanel"]
+</div>

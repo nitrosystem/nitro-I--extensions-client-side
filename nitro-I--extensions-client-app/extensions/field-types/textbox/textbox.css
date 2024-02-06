@@ -1,0 +1,46 @@
+﻿/* --------------------------------------------------------
+     Input Group With Icon
+-----------------------------------------------------------*/
+
+.form-control,
+.form-select {
+  padding-right: calc(1em + 1.5rem + 2px);
+  padding-left: 1.2rem;
+  padding-top: 0.625rem;
+  padding-bottom: 0.625rem;
+  background-color: #f9f9f9;
+  border: 1px solid #e4e6ef;
+  color: #5e6278;
+  border-radius: 0.475rem;
+  outline: none;
+}
+
+.b-input-group {
+  position: relative;
+}
+
+.b-input-group > span {
+  right: 0;
+  top: 0.8rem;
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: calc(1.5em + 1.3rem + 2px);
+}
+
+.form-control:focus {
+  border-color: #ff00005e;
+  box-shadow: none;
+  outline: none;
+}
+
+.form-control:hover {
+  box-shadow: rgba(0, 0, 0, 0.1) -4px 9px 25px -6px;
+}

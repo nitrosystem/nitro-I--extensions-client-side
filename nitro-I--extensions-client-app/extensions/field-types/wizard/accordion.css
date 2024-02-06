@@ -1,0 +1,40 @@
+.wizard-accordion {
+  position: relative;
+}
+
+.wizard-accordion .wizard-step {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+.wizard-accordion .wizard-step .accordion-header {
+  border-bottom: 0.1rem solid #ebebeb;
+  padding-bottom: 0.7rem;
+  margin-bottom: 0.7rem;
+}
+
+.wizard-accordion .wizard-step .step-title {
+  display: flex;
+  font-size: 1.3rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  outline: none;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: no-repeat;
+  box-shadow: none;
+}
+
+.wizard-accordion .wizard-step .step-title .step-icon {
+  margin-left: 0.5rem;
+  font-size: 1.5rem;
+}
+
+.wizard-accordion .wizard-step .step-desc {
+  color: gray;
+  font-size: 0.9rem;
+  font-style: italic;
+}

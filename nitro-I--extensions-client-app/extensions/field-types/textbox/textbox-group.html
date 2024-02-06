@@ -1,0 +1,9 @@
+﻿<div class="b-input-group">
+    <input type="[[Settings.InputType]]" id="bTextbox[FIELDNAME]" ng-model="[FIELD].Value" placeholder="[[Settings.Placeholder]]" class="[[Settings.InputCssClass]]" ng-class="{'is-invalid':[FIELD].Validated && ([FIELD].RequiredError || ![FIELD].IsValid)}"
+        ng-disabled="![[IsEnabled]]" ng-minlength="{{[FIELD].Settings.MinLength}}" ng-maxlength="{{[FIELD].Settings.MaxLength}}" ng-keypress="bTextBox_onKeyPress([FIELD],$event)" ng-focus="bTextBox_onFocus([FIELD],$event)" ng-blur="bTextBox_onBlur([FIELD],$event)"
+    />
+
+    <span class="input-icon input-icon--{{[FIELD].Settings.IconPosition}}">
+        <i class="{{[FIELD].Settings.FontIcon}}"></i>
+    </span>
+</div>

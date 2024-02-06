@@ -1,0 +1,95 @@
+﻿<div class="b-field">
+    <label class="form-label">Show Auto Complete </label>
+    <label class="b-switch theme-topol">
+        <input type="checkbox" ng-model="$.currentField.Settings.ShowAutoComplete" />
+        <span class="slider"></span>
+    </label>
+</div>
+<div class="b-field" ng-if="$.currentField.Settings.ShowAutoComplete">
+    <label class="form-label">Auto Complete Place Holder</label>
+    <input type="text" ng-model="$.currentField.Settings.AutoCompletePlaceHolder" class="b-input form-control"
+        placeholder="Auto Complete Place Holder" />
+</div>
+<div class="b-field">
+    <label class="form-label">Map Height</label>
+    <input type="text" ng-model="$.currentField.Settings.MapHeight" class="b-input form-control"
+        placeholder="Map Height" />
+</div>
+<div class="b-field">
+    <label class="form-label">Default Zoom</label>
+    <input type="text" ng-model="$.currentField.Settings.DefaultZoom" class="b-input form-control"
+        placeholder="Default Zoom" valid-int-number />
+</div>
+<div class="b-field">
+    <label class="form-label">Default Location</label>
+    <input type="text" ng-model="$.currentField.Settings.DefaultLocationLat" class="b-input form-control"
+        placeholder="Default Location Latitude" />
+    <input type="text" ng-model="$.currentField.Settings.DefaultLocationLng" class="b-input form-control"
+        placeholder="Default Location Longitude" />
+</div>
+<div class="b-field ">
+    <label class="form-label">Show Latitude and Longitude</label>
+    <label class="toggle-switch theme-topol">
+        <input type="checkbox" ng-model="$.currentField.Settings.ShowLatLng" />
+        <div class="slider"></div>
+    </label>
+</div>
+<div class="b-field">
+    <label class="form-label">Show Text Box Location</label>
+    <label class="b-switch theme-topol">
+        <input type="checkbox" ng-model="$.currentField.Settings.ShowTextBoxLocation" />
+        <span class="slider"></span>
+    </label>
+</div>
+<div class="b-field" ng-if="$.currentField.Settings.ShowTextBoxLocation">
+    <label class="form-label">Manual Location</label>
+    <div class="b-field">
+        <label class="form-label">Lat Lable</label>
+        <input type="text" ng-model="$.currentField.Settings.ManualLocLableLat" class="b-input form-control" />
+        <label class="form-label">Lng Lable</label>
+        <input type="text" ng-model="$.currentField.Settings.ManualLocLableLng" class="b-input form-control" />
+    </div>
+    <div class="b-field">
+        <label class="form-label">Lat Placeholder</label>
+        <input type="text" ng-model="$.currentField.Settings.ManualLocPlaceholderLat" class="b-input form-control" />
+        <label class="form-label">Lng Placeholder</label>
+        <input type="text" ng-model="$.currentField.Settings.ManualLocPlaceholderLng" class="b-input form-control" />
+    </div>
+</div>
+
+<div class="b-field">
+    <label class="form-label">Enable Fit Bounds</label>
+    <label class="b-switch theme-topol">
+        <input type="checkbox" ng-model="$.currentField.Settings.EnableFitBounds" />
+        <span class="slider"></span>
+    </label>
+</div>
+
+<div class="b-field" ng-if="$.currentField.Settings.EnableFitBounds">
+    <label class="form-label">Fit Bounds</label>
+    <div class="b-field" style="border: dotted 0.1rem #555555; border-radius: 0.475rem; padding: 1rem;">
+        <label class="form-label">From</label>
+        <input type="text" ng-model="$.currentField.Settings.FitBoundsFromLat" class="b-input form-control"
+            placeholder="From Location Latitude" />
+        <input type="text" ng-model="$.currentField.Settings.FitBoundsFromLng" class="b-input form-control"
+            placeholder="From Location Longitude" />
+    </div>
+    <div class="b-field" style="border: dotted 0.1rem #555555; border-radius: 0.475rem; padding: 1rem;">
+        <label class="form-label">To</label>
+        <input type="text" ng-model="$.currentField.Settings.FitBoundsToLat" class="b-input form-control"
+            placeholder="To Location Latitude" />
+        <input type="text" ng-model="$.currentField.Settings.FitBoundsToLng" class="b-input form-control"
+            placeholder="To Location Longitude" />
+    </div>
+</div>
+
+<div class="b-field">
+    <label class="form-label">Tooltip From Text</label>
+    <input type="text" ng-model="$.currentField.Settings.ToolTipFromText" class="b-input form-control" />
+    <label class="form-label">Tooltip To Text</label>
+    <input type="text" ng-model="$.currentField.Settings.ToolTipToText" class="b-input form-control" />
+    <label class="form-label">Tooltip Clear Text</label>
+    <input type="text" ng-model="$.currentField.Settings.ToolTipClearText" class="b-input form-control" />
+    <label class="form-label">Tooltip OK Text</label>
+    <input type="text" ng-model="$.currentField.Settings.ToolTipOKText" class="b-input form-control" />
+</div>

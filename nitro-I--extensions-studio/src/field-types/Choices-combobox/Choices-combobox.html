@@ -1,0 +1,5 @@
+﻿<select ng-model="$.field.Value" class="b-input form-control" placeholder-text-single="$.field.Settings.Placeholder"
+    chosen>
+    <option ng-repeat="option in $.field.DataSource.Items" ng-value="option[$.field.Settings.DataSource.ValueField]">
+        {{option[$.field.Settings.DataSource.TextField]}}</option>
+</select>

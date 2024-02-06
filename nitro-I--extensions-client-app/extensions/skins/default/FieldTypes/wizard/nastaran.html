@@ -1,0 +1,100 @@
+﻿<div class="row">
+    <div class="col-md-3 col-sm-4 hidden-xs">
+        <div class="steps clearfix">
+            <ul role="tablist">
+                <li ng-repeat="step in [FIELD].Settings.Steps | filter:{IsShow:true}" class="cursor-pointer"
+                    ng-class="{'current':[FIELD].Settings.CurrentStep==step.Name,'disabled':!step.IsEnable}"
+                    ng-click="bWizard_onStepClick([FIELD],step)">
+                    <a id="steps-uid-0-t-0">
+                        <div class="title">
+                            <span class="step-number">{{$index+1}}</span>
+                            <span class="step-text">{{step.Title}}</span>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+    <div class="col-md-9 col-sm-8">
+        <div class="wizard-content clearfix">
+            <div id="wizard[FIELDNAME]Panes"></div>
+        </div>
+    </div>
+</div>
+
+<style type="text/css">
+    .steps {
+        float: left;
+        width: 310px;
+    }
+
+        .steps ul {
+            position: relative;
+            padding: 0 40px 0 0;
+            margin-top: 60px 0 0 0;
+            list-style-type: none;
+            z-index: 1;
+        }
+
+            .steps ul:after {
+                position: absolute;
+                content: '';
+                width: 2px;
+                height: calc(100% - 45px);
+                background: #ebebeb;
+                right: 77px;
+                top: 0;
+                z-index: 9;
+            }
+
+
+            .steps ul li {
+                padding-bottom: 40px;
+                position: relative;
+                z-index: 99;
+                list-style: none;
+            }
+
+                .steps ul li a {
+                    text-decoration: none;
+                    color: #222;
+                }
+
+        .steps .current .title .step-number {
+            background: #4966b1;
+            color: #fff;
+        }
+
+        .steps .title .step-number {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            border-radius: 50%;
+            line-height: 2.5;
+            background: #ebebeb;
+            color: #999;
+            margin-right: 15px;
+            border: 5px solid #fff;
+            font-weight: bold;
+        }
+
+        .steps .current .title .step-text {
+            color: #4966b1;
+        }
+
+        .steps .disabled .step-text {
+            opacity: 0.5;
+        }
+
+        .steps .title .step-text {
+            font-weight: bold;
+            color: #999;
+        }
+
+    .wizard-content {
+        background: #f8f8f8;
+        padding: 35px;
+    }
+</style>

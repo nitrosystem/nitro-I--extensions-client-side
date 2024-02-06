@@ -1,0 +1,54 @@
+﻿<div class="b-field">
+    <label class="form-label">Rows</label>
+    <input type="number" ng-model="$.currentField.Settings.Rows" class="b-input form-control"
+        placeholder="Textarea rows count" />
+</div>
+<div class="b-field">
+    <label class="form-label">Max Length</label>
+    <input type="number" ng-model="$.currentField.Settings.MaxLength" class="b-input form-control"
+        placeholder="Field max length" />
+</div>
+<div class="b-field" ng-if="currentField.Settings.MaxLength">
+    <label class="form-label">Show Max Length</label>
+    <label class="b-switch d-block">
+        <input type="checkbox" hidden="hidden" ng-model="$.currentField.Settings.ShowMaxLength" />
+        <div class="slider"></div>
+    </label>
+</div>
+<div class="b-field">
+    <label class="form-label">Max Length Message</label>
+    <input type="text" ng-model="$.currentField.Settings.MaxLengthMessage" class="b-input form-control"
+        placeholder="Max length message" />
+</div>
+<div class="b-field">
+    <label class="form-label">Placeholder</label>
+    <input type="text" ng-model="$.currentField.Settings.Placeholder" class="b-input form-control" />
+</div>
+<div class="b-field">
+    <label class="form-label">Input Css Class</label>
+    <input type="text" ng-model="$.currentField.Settings.InputCssClass" class="b-input form-control"
+        placeholder="Input css class" />
+</div>
+<div class="b-field">
+    <label class="form-label">Icon Position</label>
+    <input type="text" ng-model="$.currentField.Settings.IconPosition" class="b-input form-control" />
+</div>
+<div class="b-field">
+    <label class="form-label">Font Icon</label>
+    <input type="text" ng-model="$.currentField.Settings.FontIcon" class="b-input form-control" />
+</div>
+<div class="b-field">
+    <label class="form-label">Input Mask Regex</label>
+    <input type="text" ng-model="$.currentField.Settings.InputMask" class="b-input form-control"
+        placeholder="Input Mask Options" />
+</div>
+<div class="b-field">
+    <label class="form-label">Input Mask Type</label>
+    <input type="text" ng-model="$.currentField.Settings.InputMaskType" class="b-input form-control"
+        placeholder="Input Mask" />
+</div>
+<div class="b-field">
+    <label class="form-label">Input Mask Options</label>
+    <input type="text" ng-model="$.currentField.Settings.InputMaskOptions" class="b-input form-control"
+        placeholder="Input Mask" />
+</div>

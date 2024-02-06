@@ -1,0 +1,8 @@
+﻿<div class="nice-select-group-icon">
+    <select id="nice-select-[FIELDNAME]" class="[[Settings.DropdownCssClass]]" placeholder="[[Settings.Placeholder]]">
+        <option ng-if="[FIELD].DataSource.Items.length" ng-repeat="option in [FIELD].DataSource.Items" ng-value="option.[[Settings.DataSource.ValueField]]" ng-selected="[FIELD].Value == option.[[Settings.DataSource.ValueField]]">{{option.[[Settings.DataSource.TextField]]}}</option>
+    </select>
+    <span class="input-icon input-icon--[[Settings.IconPosition]]">
+        <i class="[[Settings.FontIcon]]"></i>
+    </span>
+</div>

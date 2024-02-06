@@ -1,0 +1,11 @@
+﻿<div id="map[FIELDNAME]" ng-style="{'height':[FIELD].Settings.MapHeight}"></div>
+<div id="map[FIELDNAME]-manual-loc" ng-if="[FIELD].Settings.ShowTextBoxLocation">
+    <label ng-if="!![FIELD].Settings.ManualLocLableLat"
+        class="ng-binding ng-scope loc-lable-lat">{{[FIELD].Settings.ManualLocLableLat}}</label>
+    <input type="text" placeholder="{{[FIELD].Settings.ManualLocPlaceholderLat}}" class="loc-text-lat"
+        ng-keyup="bLeafletjsMapRouting_onKeyUp([FIELD],$event,'Lat')">
+    <label ng-if="!![FIELD].Settings.ManualLocLableLng"
+        class="ng-binding ng-scope loc-lable-lng">{{[FIELD].Settings.ManualLocLableLng}}</label>
+    <input type="text" placeholder="{{[FIELD].Settings.ManualLocPlaceholderLng}}" class="loc-text-lng"
+        ng-keyup="bLeafletjsMapRouting_onKeyUp([FIELD],$event,'Lng')">
+</div>

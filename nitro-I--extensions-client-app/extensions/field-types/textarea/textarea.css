@@ -1,0 +1,28 @@
+﻿/* --------------------------------------------------------
+     Input Group With Icon
+-----------------------------------------------------------*/
+.b-input-group {
+    position: relative;
+}
+
+    .b-input-group .form-control,
+    .b-input-group .form-select {
+        padding-right: calc(1em + 1.5rem + 2px);
+    }
+
+    .b-input-group > span {
+        right: 0;
+        top: 0;
+        bottom: 0;
+        position: absolute;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        width: calc(1.5em + 1.3rem + 2px);
+    }

@@ -1,0 +1,8 @@
+﻿<div class="select2-group-icon">
+    <select ng-if="[FIELD].Inited" class="form-select" id="select2[FIELDNAME]" ui-select2="[FIELD].select2Options" ng-model="[FIELD].Value" ng-options="item.[[Settings.DataSource.ValueField]] as item.[[Settings.DataSource.TextField]] for item in [FIELD].DataSource.Items"
+        data-placeholder="[[Settings.Placeholder]]" data-theme="group-icon" data-dir="[[Settings.Direction]]" multiple="multiple">
+    </select>
+    <span class="input-icon input-icon--{{[FIELD].Settings.IconPosition}}">
+        <i class="{{[FIELD].Settings.FontIcon}}"></i>
+    </span>
+</div>

@@ -1,0 +1,84 @@
+﻿<div class="b-field">
+    <label class="form-label">Input Type</label>
+    <select ng-model="$.currentField.Settings.InputType" class="b-input form-control" chosen required>
+        <option value="text">Text</option>
+        <option value="number">Number</option>
+        <option value="password">Password</option>
+        <option value="email">Email</option>
+        <option value="search">Search</option>
+        <option value="date">Date</option>
+        <option value="datetime">Date Time</option>
+        <option value="tel">Tel</option>
+        <option value="time">Time</option>
+    </select>
+</div>
+<div class="b-field">
+    <label class="form-label">Placeholder</label>
+    <input type="text" ng-model="$.currentField.Settings.Placeholder" class="b-input form-control" />
+</div>
+<div class="b-field">
+    <label class="form-label">Input Css Class</label>
+    <input type="text" ng-model="$.currentField.Settings.InputCssClass" class="b-input form-control"
+        placeholder="Input css class" />
+</div>
+<div class="b-field">
+    <label class="form-label">Icon Position</label>
+    <input type="text" ng-model="$.currentField.Settings.IconPosition" class="b-input form-control" />
+</div>
+<div class="b-field">
+    <label class="form-label">Font Icon</label>
+    <input type="text" ng-model="$.currentField.Settings.FontIcon" class="b-input form-control" />
+</div>
+<div class="b-field">
+    <label class="form-label">Input Mask Regex</label>
+    <input type="text" ng-model="$.currentField.Settings.InputMask" class="b-input form-control"
+        placeholder="Input Mask Options" />
+</div>
+<div class="b-field">
+    <label class="form-label">Input Mask Type</label>
+    <input type="text" ng-model="$.currentField.Settings.InputMaskType" class="b-input form-control"
+        placeholder="Input Mask" />
+</div>
+<div class="b-field">
+    <label class="form-label">Input Mask Options</label>
+    <input type="text" ng-model="$.currentField.Settings.InputMaskOptions" class="b-input form-control"
+        placeholder="Input Mask" />
+</div>
+<div class="b-field">
+    <label class="form-label">Enter Action</label>
+    <select ng-model="$.currentField.Settings.EnterAction" class="b-input form-control"
+        ng-options="action.ActionID as action.ActionName for action in $.actions" chosen>
+        <option value="">---None---</option>
+    </select>
+</div>
+<div class="b-field">
+    <label class="form-label">Enter Button Click</label>
+    <select ng-model="$.currentField.Settings.EnterButtonClick" class="b-input form-control"
+        ng-options="field.FieldID as field.FieldName for field in $.fields | filter: {FieldType:'Button'}" chosen>
+        <option value="">---None---</option>
+    </select>
+</div>
+<div ng-repeat="attr in $.currentField.Settings.Attributes"
+    style="padding:10px;margin-bottom:10px;border:solid 1px #ccc;">
+    <div class="b-field">
+        <div class="col-xs-11">
+            <label>Attribute Name</label>
+            <input type="text" ng-model="attr.Name" class="b-input form-control" />
+        </div>
+        <div class="col-xs-11">
+            <label>Attribute Value</label>
+            <input type="text" ng-model="attr.Value" class="b-input form-control" />
+        </div>
+        <div class="col-xs-1">
+            <span class="pull-right cursor-pointer" ng-click="currentField.Settings.Thumbnails.splice($index,1)">
+                <i class="zmdi zmdi-delete"></i>
+            </span>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>
+<div class="b-field" ng-init="currentField.Settings.Attributes=currentField.Settings.Attributes||[]">
+    <button type="button" class="btn btn-primary" ng-click="currentField.Settings.Attributes.push({})">
+        <i class="zmdi zmdi-plus"></i> Add Attributes
+    </button>
+</div>

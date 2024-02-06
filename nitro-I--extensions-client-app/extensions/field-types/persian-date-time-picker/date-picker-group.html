@@ -1,0 +1,13 @@
+﻿<div class="b-input-group">
+    <div class="row">
+        <div ng-class="{'col-9':[FIELD].Settings.DateType=='datetime','col-12':[FIELD].Settings.DateType=='date'}">
+            <input type="text" id="bPersianDate[FIELDNAME]" class="{{[FIELD].Settings.InputCssClass}}" placeholder="{{[FIELD].Settings.Placeholder}}" autocomplete="off" />
+        </div>
+        <div class="col-3" ng-if="[FIELD].Settings.DateType=='datetime'">
+            <input type="text" id="bPersianDateTime[FIELDNAME]" ng-model="[FIELD].ValueTime" class="{{[FIELD].Settings.InputCssClass}}" placeholder="00:00" autocomplete="off" style="direction:ltr;" />
+        </div>
+    </div>
+    <span class="input-icon input-icon--{{[FIELD].Settings.IconPosition}}">
+        <i class="{{[FIELD].Settings.FontIcon}}"></i>
+    </span>
+</div>

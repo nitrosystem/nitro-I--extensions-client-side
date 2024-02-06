@@ -1,0 +1,14 @@
+﻿<div class="wizard-vertical">
+    <div class="wzv-steps">
+        <div ng-repeat="step in [FIELD].Settings.Steps | filter : {IsShow:true}" class="wzv-step" ng-class="{'active':[FIELD].Settings.CurrentStep==step.Name,'disabled':!step.IsEnable}" ng-click="bWizard_onStepClick([FIELD],step)">
+            <span class="step-icon"><i class="{{step.Icon}}"></i></span>
+            <div class="step-text">
+                <span class="step-title">{{$index+1}}-{{step.Title}}</span>
+                <p class="step-desc">{{step.Description}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="wizard-panes">
+        [FIELDPANES]
+    </div>
+</div>

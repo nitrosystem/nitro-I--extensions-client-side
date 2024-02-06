@@ -1,0 +1,40 @@
+﻿<div class="b-field">
+    <label class="form-label">Button Type</label>
+    <select ng-model="$.currentField.Settings.ButtonType" class="b-input form-select" chosen required>
+        <option value="button">Standard Button</option>
+        <option value="submit">Submit Button</option>
+    </select>
+</div>
+<div class="b-field" ng-if="$.currentField.Settings.ButtonType=='button'">
+    <label class="form-label">Validation Groups</label>
+    <select ng-model="$.currentField.Settings.ValidationGroups" class="b-input form-select"
+        ng-options="field.FieldID as field.FieldName for field in $.fields | filter: {IsGroup:true}" multiple chosen
+        required>
+    </select>
+</div>
+<div class="b-field" ng-if="$.currentField.Settings.ButtonType=='button'">
+    <label class="form-label">Validation Panes</label>
+    <select ng-model="$.currentField.Settings.ValidationPanes" class="b-input form-select"
+        ng-options="pane.paneName as pane.paneTitle for pane in $.panes" multiple chosen required>
+    </select>
+</div>
+<div class="b-field">
+    <label class="form-label">Button Css Class</label>
+    <input type="text" ng-model="$.currentField.Settings.ButtonCssClass" class="b-input form-control" />
+</div>
+<div class="b-field">
+    <label class="form-label">Button Text</label>
+    <input type="text" ng-model="$.currentField.Settings.ButtonText" class="b-input form-control" />
+</div>
+<div class="b-field">
+    <label class="form-label">Icon Position</label>
+    <input type="text" ng-model="$.currentField.Settings.IconPosition" class="b-input form-control" />
+</div>
+<div class="b-field">
+    <label class="form-label">Font Icon</label>
+    <input type="text" ng-model="$.currentField.Settings.FontIcon" class="b-input form-control" />
+</div>
+<div class="b-field">
+    <label class="form-label">Loading Css Class</label>
+    <input type="text" ng-model="$.currentField.Settings.LoadingCssClass" class="b-input form-control" />
+</div>

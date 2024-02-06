@@ -1,0 +1,55 @@
+.typeahead-group-icon {
+  position: relative;
+}
+
+.typeahead-group-icon .form-control,
+.typeahead-group-icon .form-select {
+  padding-right: calc(1em + 1.5rem + 2px);
+  padding-top: 1.4rem;
+  padding-bottom: 1.4rem;
+  text-align: right;
+}
+
+.typeahead-group-icon > .input-icon {
+  right: 0;
+  top: 0.7rem;
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: calc(1.5em + 1.3rem + 2px);
+}
+
+.tt-menu {
+  background-color: #fff;
+  padding: 0.8rem;
+  box-shadow: 0 0.3rem 0.4rem 0.15rem #aaa;
+  min-width: 15rem;
+  max-width: 100%;
+}
+
+.tt-menu .tt-suggestion {
+  border-bottom: solid 0.1rem #eee;
+  padding: 0.3rem 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.tt-menu .tt-suggestion:last-child {
+  border-bottom: none;
+}
+
+.tt-menu .tt-suggestion.tt-cursor {
+  color: #fff;
+  background-color: #333;
+}
+
+.tt-menu .tt-suggestion:hover {
+  background-color: gray;
+  color: #fff;
+}

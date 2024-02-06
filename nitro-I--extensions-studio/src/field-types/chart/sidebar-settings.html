@@ -1,0 +1,49 @@
+﻿<div class="b-field">
+    <label class="form-label">Chart Type</label>
+    <select ng-model="$.currentField.Settings.ChartType" class="b-input form-select" required>
+        <option value="line">Line</option>
+        <option value="bar">Bar</option>
+        <!-- <option value="bubble">Bubble</option>
+        <option value="doughnut">Doughnut</option> -->
+        <option value="polarArea">PolarArea</option>
+        <option value="radar">Radar</option>
+        <!-- <option value="scatter">Scatter</option> -->
+        
+    </select>
+</div>
+<div class="b-field">
+    <label class="form-label">Direction</label>
+    <select ng-model="$.currentField.Settings.Direction" class="b-input form-select" required>
+        <option disabled></option>
+        <option value="ltr">ltr</option>
+        <option value="rtl">rtl</option>
+    </select>
+</div>
+<div class="b-field">
+    <label class="form-label">Font Family</label>
+    <input type="text" ng-model="$.currentField.Settings.FontFamily" class="b-input form-control" />
+</div>
+<div class="b-field">
+    <label class="form-label">Font Size</label>
+    <input type="number" ng-model="$.currentField.Settings.FontSize" class="b-input form-control" />
+</div>
+<div class="b-field">
+    <label class="form-label">Border Width</label>
+    <input type="number" ng-model="$.currentField.Settings.BorderWidth" class="b-input form-control" />
+</div>
+<div class="b-field">
+    <label class="form-label">Tension</label>
+    <input type="number" ng-model="$.currentField.Settings.Tension" class="b-input form-control" />
+</div>
+<div class="b-field">
+    <label class="form-label">Radius</label>
+    <input type="number" ng-model="$.currentField.Settings.Radius" class="b-input form-control" />
+</div>
+<!-- <div class="b-field">
+    <label class="form-label">Width</label>
+    <input type="text" ng-model="$.currentField.Settings.Width" class="b-input form-control" />
+</div>
+<div class="b-field">
+    <label class="form-label">Height</label>
+    <input type="text" ng-model="$.currentField.Settings.Height" class="b-input form-control" />
+</div> -->

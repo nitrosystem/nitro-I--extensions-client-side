@@ -1,0 +1,116 @@
+﻿.wizard-steps.artin {
+    margin: 0;
+    position: relative;
+    text-align: right;
+}
+
+    .wizard-steps.artin > .wz-steps {
+        margin-bottom: 10px;
+        display: table;
+        width: 100%;
+    }
+
+        .wizard-steps.artin > .wz-steps .wz-step {
+            color: #62b965;
+            cursor: pointer;
+            display: table-cell;
+            font-size: 14px;
+            font-weight: 400;
+            margin-bottom: 15px;
+            margin-left: -0.5%;
+            padding: 40px 25px 0;
+            position: relative;
+            text-align: center;
+            transition: all 300ms ease-in-out 0s;
+        }
+
+            .wizard-steps.artin > .wz-steps .wz-step.disable, .wizard-steps.artin > .wz-steps .wz-step.disabled {
+                cursor: not-allowed;
+                opacity: .5;
+            }
+
+            .wizard-steps.artin > .wz-steps .wz-step::before, .wizard-steps.artin > .wz-steps .wz-step::after {
+                border-color: #62b965;
+                border-style: solid;
+                border-width: 2px 0 0;
+                content: "";
+                position: absolute;
+                top: 15px;
+                transition: all 300ms ease-in-out 0s;
+                z-index: 1;
+            }
+
+            .wizard-steps.artin > .wz-steps .wz-step::before {
+                left: calc(50% + 20px);
+                width: calc(50% - 20px);
+            }
+
+            .wizard-steps.artin > .wz-steps .wz-step::after {
+                left: -10px;
+                width: calc(50% - 10px);
+            }
+
+            .wizard-steps.artin > .wz-steps .wz-step:first-child::before, .wizard-steps.artin > .wz-steps .wz-step:last-child::after {
+                border-style: dashed;
+            }
+
+            .wizard-steps.artin > .wz-steps .wz-step.active:after {
+                border-color: #ddd !important;
+            }
+
+            .wizard-steps.artin > .wz-steps .wz-step.active ~ .wz-step,
+            .wizard-steps.artin > .wz-steps .wz-step.active ~ .wz-step:before, .wizard-steps.artin > .wz-steps .wz-step.active ~ .wz-step:after {
+                color: #333;
+                border-color: #ddd;
+            }
+
+            .wizard-steps.artin > .wz-steps .wz-step > span {
+                border: 2px solid #62b965;
+                color: #333;
+                border-radius: 50%;
+                display: inline-block;
+                right: calc(50% - 13px);
+                position: absolute;
+                top: 0;
+                font-size: 18px;
+                text-align: center;
+                font-weight: 400;
+                line-height: 1.5;
+                height: 28px;
+                width: 28px;
+                transition: all 300ms ease-in-out 0s;
+                z-index: 3;
+            }
+
+                .wizard-steps.artin > .wz-steps .wz-step > span::before {
+                    color: #fff;
+                    font-size: 15px;
+                    font-weight: 700;
+                    right: 4px;
+                    line-height: 1;
+                    position: absolute;
+                    top: 4px;
+                }
+
+            .wizard-steps.artin > .wz-steps .wz-step.active > span {
+                background-color: #62b965;
+                border-color: #62b965;
+                color: #fff;
+            }
+
+                .wizard-steps.artin > .wz-steps .wz-step.active > span::before {
+                }
+
+
+            .wizard-steps.artin > .wz-steps .wz-step.active ~ .wz-step > span {
+                border-color: #ddd;
+            }
+
+                .wizard-steps.artin > .wz-steps .wz-step.active ~ .wz-step > span:before {
+                    content: none;
+                }
+
+    .wizard-steps.artin > .step-content {
+        padding-top: 30px;
+        min-height: 250px;
+    }

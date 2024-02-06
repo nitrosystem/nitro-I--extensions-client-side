@@ -1,0 +1,99 @@
+﻿<div class="b-table theme-gray mb-3">
+    <div class="table-body pt-4">
+        <div class="d-flex columns-name">
+            <div class="col-2">Title</div>
+            <div class="col-2">Type</div>
+        </div>
+        <!-- <i class="codicon codicon-pie-chart"></i> -->
+        <div class="d-flex table-row" ng-repeat="column in $.field.Settings.Columns | orderBy:'ViewOrder'"
+                ng-style="{'order':($index+1)}">
+                <div class="col-2 my-auto"> {{column.Title}} </div>
+                <div class="col-2 my-auto"> {{column.ColumnType}} </div>
+                <div class=" col-1">
+                    <div class="b-multi-btns">
+                        <button type="button" class="p-0" ng-click="$.onEditColumnClick(column)" b-custom-tooltip
+                            data-bs-placement="bottom" title="Edit Column">
+                            <i class="codicon codicon-edit me-0"></i>
+                        </button>
+                        <button type="button" ng-click="$.onDeleteColumnClick(column)" b-custom-tooltip
+                            data-bs-placement="bottom" title="Delete Column">
+                            <i class="codicon codicon-trash me-0"></i>
+                        </button>
+                    </div>
+                </div>
+        </div>
+
+    </div>
+    <div class="table-footer">
+        <button type="button" class="b-btn btn-action" ng-click="$.onAddColumnClick()">
+            <i class="codicon codicon-plus"></i>
+            Add Column
+        </button>
+    </div>
+
+    <div class="table-body pt-4">
+        <div class="d-flex columns-name">
+            <div class="col-2">Lables Type<span ng-if="$.field.Settings.LableType" style="font-weight: bold;">: {{$.field.Settings.LableType == "CustomLable"? "Custom Lable": "Bind To Property"}}</span></div>
+        </div>
+        <div class="d-flex table-row" ng-if="$.field.Settings.LableType =='CustomLable'">
+            <span ng-repeat="label in $.field.Settings.CustomLables"> {{',' + label.LableName}}</span>
+        </div>
+        <div class="d-flex table-row" ng-if="$.field.Settings.LableType =='BindToProperty'">
+            <span >Bind to {{$.field.Settings.BindLable.Content}}</span>
+        </div>
+        <!-- <i class="codicon codicon-pie-chart"></i> -->
+        <!-- <div class="d-flex table-row" ng-repeat="column in $.field.Settings.CustomLables | orderBy:'ViewOrder'"
+                ng-style="{'order':($index+1)}">
+                <div class="col-2 my-auto"> {{column.LableName}} </div>
+                <div class=" col-1">
+                    <div class="b-multi-btns">
+                        <button type="button" class="p-0" ng-click="$.onEditColumnClick(column)" b-custom-tooltip
+                            data-bs-placement="bottom" title="Edit Column">
+                            <i class="codicon codicon-edit me-0"></i>
+                        </button>
+                        <button type="button" ng-click="$.onDeleteColumnClick(column)" b-custom-tooltip
+                            data-bs-placement="bottom" title="Delete Column">
+                            <i class="codicon codicon-trash me-0"></i>
+                        </button>
+                    </div>
+                </div>
+        </div> -->
+
+    </div>
+    <div class="table-footer">
+        <button type="button" class="b-btn btn-action" ng-click="$.onAddLabelClick()">
+            <i class="codicon codicon-plus"></i>
+            Add Label
+        </button>
+    </div>
+</div>
+
+
+    
+
+
+<div class="b-field">
+    <label class="form-label">Data Source</label>
+    <div ng-if="$.field.Settings.DataSource" role="button" ng-click="$.onEditFieldDataSourceClick()">
+        <div class="b-notify notify-warning mb-3">
+            <i class="codicon codicon-combine icon-sm"></i>
+            <div class="text">
+                <span class="subtext">
+                    Type :
+                    <label ng-if="$.field.Settings.DataSource.Type==0">Standard(Static items)</label>
+                    <label ng-if="$.field.Settings.DataSource.Type==1">Use Defined List</label>
+                    <label ng-if="$.field.Settings.DataSource.Type==2">Data Source Service </label>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="b-field" ng-if="!$.field.Settings.DataSource">
+    <button type="button" class="b-btn btn-action" ng-click="$.onEditFieldDataSourceClick()">
+        <i class="codicon codicon-plus"></i>
+        Set Data Source
+    </button>
+</div>
+
+<div ng-include="$.editColumnWidget"></div>
+<div ng-include="$.editLabelWidget"></div>

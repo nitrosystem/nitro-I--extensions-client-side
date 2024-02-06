@@ -1,0 +1,49 @@
+﻿sheet-market {
+    direction: rtl;
+}
+
+.wizard-steps {
+    display: table;
+    width: 100%;
+}
+
+.wizard-step {
+    position: relative;
+    display: table-cell;
+}
+
+    .wizard-step:before {
+        position: absolute;
+        left: 0;
+        width: calc(40% - 5px);
+        top: 10px;
+        height: 1px;
+        border: dashed 2px #c1c1c1;
+        content: "";
+    }
+
+    .wizard-step:after {
+        position: absolute;
+        right: 5px;
+        width: 40%;
+        top: 10px;
+        height: 1px;
+        border: dashed 2px #c1c1c1;
+        content: "";
+    }
+
+    .wizard-step:first-child:before, .wizard-step:last-child:after {
+        border-style: solid !important;
+    }
+
+    .wizard-step.active:before, .wizard-step.active:after {
+        border-color: #4fa5fe !important;
+    }
+
+    .wizard-step.active {
+        color: #4fa5fe !important;
+    }
+
+.wizard-wrapper {
+    text-align: center;
+}

@@ -1,0 +1,14 @@
+<div class="upload-image-fantasy">
+    <input type="file" class="form-control" accept="image/*" ng-multiple="[FIELD].Settings.AllowUploadMultipleFile" multiple ngf-select="onUploadImages([FIELD],$files,$file, $newFiles, $duplicateFiles, $invalidFiles, $event)" ngf-max-files="{{[FIELD].Settings.MaxFileCount?[FIELD].Settings.MaxFileCount:1}}"
+        ngf-max-size="{{[FIELD].Settings.MaxFileLength?[FIELD].Settings.MaxFileLength*1024:12000000}}" ngf-fix-orientation="true" />
+
+    <div class="circle">
+        <span class="button-title">انتخاب فایل</span>
+        <i ng-if="![FIELD].Value" class="bi bi-person-square"></i>
+        <img ng-if="[FIELD].Value" ng-src="{{[FIELD].Value[0].FilePath}}" class="image-preview" />
+    </div>
+    <i class="bi bi-cloud-upload-fill"></i>
+    <p>
+        حداکثر سایز تصویر 10 مگابایت می باشد.<br> لطفا تصویری در چارچوب و استاندارد جامعه بارگذاری نمایید.<br> پسوند های مجاز : jpg,png,bmp,gif
+    </p>
+</div>

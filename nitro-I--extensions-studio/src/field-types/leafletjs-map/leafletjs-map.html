@@ -1,0 +1,11 @@
+<div class="b-input-group" ng-if="$.field.Settings.ShowTextBoxLocation">
+    <lable class="b-field-item b-input-edit ">{{$.field.Settings.ManualLocLableLat}}</lable>
+    <input type="text" class="b-input form-control" ng-model="$.field.Settings.ManualLocPlaceholderLat"
+        placeholder="{{$.field.Settings.ManualLocPlaceholderLat}}" autocomplete="off" />
+    <span><i class="codicon codicon-{{$.field.Settings.Icon}}"></i></span>
+    <lable class="b-field-item b-input-edit ">{{$.field.Settings.ManualLocLableLng}}</lable>
+    <input type="text" class="b-input form-control" ng-model="$.field.Settings.ManualLocPlaceholderLng"
+        placeholder="{{$.field.Settings.ManualLocPlaceholderLng}}" autocomplete="off" />
+    <span><i class="codicon codicon-{{$.field.Settings.Icon}}"></i></span>
+</div>
+<div id="map{{$.field.FieldName}}"></div>

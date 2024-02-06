@@ -1,0 +1,19 @@
+<div id="[FIELDNAME]_accordionWizard" class="accordion accordion-flush wizard-accordion">
+    <!-- step html -->
+    -[[[
+    <div class="accordion-item wizard-step" ng-class="{'active':[FIELD].Settings.CurrentStep==[STEP].Name,'disabled':![STEP].IsEnable}" ng-click="bWizard_onStepClick([FIELD],[STEP],$event)">
+        <div class="accordion-header" id="[FIELDNAME]_accordionHeader">
+            <h2 class="accordion-button step-title collapsed" data-bs-toggle="collapse" data-bs-target="#WizardStep_{{[STEP].Name}}" aria-expanded="false" aria-controls="WizardStep_{{[STEP].Name}}">
+                <i ng-if="[STEP].Icon" class="step-icon {{[STEP].Icon}}"></i> {{[STEP].Title}}
+            </h2>
+            <span class="step-desc">{{[STEP].Description}}</span>
+        </div>
+        [STEPPANE]
+    </div>
+    ]]]-
+</div>
+*[[[
+<div id="WizardStep_${step.Name}" data-bs-parent="#[FIELDNAME]_accordionWizard" data-pane="WizardStep_${step.Name}" data-pane-title="${step.Name} Pane" data-parent-id="${field.FieldID}" class="${step.PaneCssClass} pane-body accordion-collapse collapse"
+    ng-class="{'active':[FIELD].Settings.CurrentStep=='${step.Name}','disabled':![FIELD].Step['${step.Name}'].IsEnable}"></div>
+]]]*
+<!-- [FIELDPANES]-->

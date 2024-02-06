@@ -1,0 +1,42 @@
+<!------------------------------------>
+<!--Layout & Item Template-->
+<!------------------------------------>
+<b-right-widget ng-if="$.workingMode=='selectable-list-edit-templates'" data-title="Edit Templates" data-icon="notebook-template" data-subtitle="Edit selectable list templates" data-await-action="$.awaitAction" data-module="$">
+    <div class="tabs-container pb-3 mb-2">
+        <ul class="nav nav-tabs b-tab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="selectable-list-layout-tab" data-bs-toggle="tab" data-bs-target="#selectable-list-layout-content" type="button" role="tab" aria-controls="selectable-list-layout-content" aria-selected="true" data-tab="1">List Layout Template</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="selectable-list-item-tab" data-bs-toggle="tab" data-bs-target="#selectable-list-item-content" type="button" role="tab" aria-controls="selectable-list-item-content" aria-selected="false" data-tab="2">List Item Template</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="selectable-list-css-tab" data-bs-toggle="tab" data-bs-target="#selectable-list-css-content" type="button" role="tab" aria-controls="selectable-list-css-content" aria-selected="false" data-tab="3">Custom Css</button>
+            </li>
+        </ul>
+        <div class="tab-content p-0 mb-4">
+            <div class="tab-pane fade show active" id="selectable-list-layout-content" role="tabpanel" aria-labelledby="selectable-list-layout-content">
+                <div monaco-editor ng-model="$.field.Settings.LayoutTemplate" data-language="html" data-height="445px" required>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="selectable-list-item-content" role="tabpanel" aria-labelledby="selectable-list-item-content">
+                <div monaco-editor ng-model="$.field.Settings.ItemTemplate" data-language="html" data-height="445px" required>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="selectable-list-css-content" role="tabpanel" aria-labelledby="selectable-list-css-tab">
+                <div monaco-editor ng-model="$.field.Settings.LayoutCss" data-language="css" data-height="445px">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mb-1 d-flex justify-content-end mt-auto">
+        <button type="button" class="b-btn btn-submit me-2" ng-click="$.onSaveTemplatesClick()" ng-disabled="$.running">
+            <i class="codicon codicon-save"></i>
+            Save
+        </button>
+        <button type="button" class="b-btn btn-cancel" ng-click="$.onCancelTemplatesClick()" ng-disabled="$.running">
+            <i class="codicon codicon-circle-slash"></i>
+            Cancel
+        </button>
+    </div>
+</b-right-widget>

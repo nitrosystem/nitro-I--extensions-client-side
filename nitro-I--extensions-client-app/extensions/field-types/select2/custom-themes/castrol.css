@@ -1,0 +1,68 @@
+﻿.select2.select2-container--castrol {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 16px;
+    height: 60px;
+    border: 1px solid #999;
+    border-radius: 3px;
+    margin-top: 10px;
+    width: 100%;
+}
+
+    .select2.select2-container--castrol.select2-container--open {
+        border: solid 2px #00833b;
+    }
+
+.select2-container--castrol .select2-selection--single {
+    outline: none;
+}
+
+    .select2-container--castrol .select2-selection--single .select2-selection__rendered {
+        display: block;
+        padding-left: 8px;
+        padding-right: 20px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        color: hsla(0,0%,74.9%,.87);
+    }
+
+.select2-container--castrol.select2-container--open {
+    border-top-width: 1px !important;
+    border-bottom-width: 1px !important;
+    margin-bottom: 6px;
+    box-shadow: 0 2px 3px 0 rgb(34 36 38 / 15%);
+    border: 1px solid #999 !important;
+    border-radius: 3px !important;
+}
+
+    .select2-container--castrol.select2-container--open .select2-search.select2-search--dropdown .select2-search__field {
+        display:block;
+        outline: none;
+        padding: 10px;
+        border: solid 2px #00833b;
+    }
+
+    .select2-container--castrol.select2-container--open .select2-results > ul {
+        list-style: none;
+        max-height: 277px;
+        height: -webkit-max-content;
+        height: -moz-max-content;
+        height: max-content;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+        .select2-container--castrol.select2-container--open .select2-results > ul > li {
+            list-style: none;
+            border-top: 1px solid #999;
+            font-size: 16px;
+            padding: 0.78571429rem 1.14285714rem !important;
+            white-space: normal;
+            word-wrap: normal;
+        }
+
+            .select2-container--castrol.select2-container--open .select2-results > ul > li.select2-results__option--highlighted {
+                background: #00833b;
+                color: #fff;
+            }

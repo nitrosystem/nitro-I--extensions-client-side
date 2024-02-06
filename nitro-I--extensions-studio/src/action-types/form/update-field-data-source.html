@@ -1,0 +1,18 @@
+<div class="b-field">
+    <label class="form-label">Field</label>
+    <div class="b-input-group">
+        <select id="drpField" ng-model="$.action.Settings.FieldID" class="b-input form-select"
+            ng-options="field.FieldID as field.FieldName for field in $.fields" chosen
+            placeholder-text-single="'Select field'" required>
+        </select>
+        <span><i class="codicon codicon-plus"></i></span>
+    </div>
+</div>
+<div class="b-field">
+    <label class="form-label">Page Index</label>
+    <div monaco-editor ng-model="$.action.Settings.PageIndex" data-language="bProperties" data-one-line="true"></div>
+</div>
+<div class="b-field">
+    <label class="form-label">Page Size</label>
+    <div monaco-editor ng-model="$.action.Settings.PageSize" data-language="bProperties" data-one-line="true"></div>
+</div>

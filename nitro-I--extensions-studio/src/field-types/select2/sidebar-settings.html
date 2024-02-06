@@ -1,0 +1,27 @@
+﻿<div class="b-field">
+    <label class="form-label">Placeholder</label>
+    <input type="text" ng-model="$.currentField.Settings.Placeholder" class="b-input form-control" />
+</div>
+<div class="b-field">
+    <label class="form-label">Direction</label>
+    <select ng-model="$.currentField.Settings.Direction" class="b-input form-select" required>
+        <option disabled></option>
+        <option value="ltr">ltr</option>
+        <option value="rtl">rtl</option>
+    </select>
+</div>
+<div class="b-field">
+    <label class="form-label">Icon Position</label>
+    <input type="text" ng-model="$.currentField.Settings.IconPosition" class="b-input form-control" />
+</div>
+<div class="b-field">
+    <label class="form-label">Font Icon</label>
+    <input type="text" ng-model="$.currentField.Settings.FontIcon" class="b-input form-control" />
+</div>
+<div class="b-field">
+    <label class="form-label">Show Clean Icon</label>
+    <label class="b-switch d-block">
+        <input type="checkbox" hidden="hidden" ng-model="$.currentField.Settings.ShowCleanIcon" />
+        <div class="slider"></div>
+    </label>
+</div>

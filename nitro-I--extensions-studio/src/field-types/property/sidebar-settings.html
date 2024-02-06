@@ -1,0 +1,34 @@
+﻿<div class="b-field">
+    <label class="form-label">Enable Button 1</label>
+    <label class="b-switch d-block">
+        <input type="checkbox" hidden="hidden" ng-model="$.currentField.Settings.EnableButton1" />
+        <div class="slider"></div>
+    </label>
+</div>
+<div ng-if="$.currentField.Settings.EnableButton1">
+    <div class="b-field">
+        <label class="form-label">Button Text 1</label>
+        <input type="text" ng-model="$.currentField.Settings.ButtonText1" class="b-input form-control" />
+    </div>
+    <div class="b-field">
+        <label class="form-label">Button Css 1</label>
+        <input type="text" ng-model="$.currentField.Settings.ButtonCss1" class="b-input form-control" />
+    </div>
+</div>
+<div class="b-field">
+    <label class="form-label">Enable Button 1</label>
+    <label class="b-switch d-block">
+        <input type="checkbox" hidden="hidden" ng-model="$.currentField.Settings.EnableButton2" />
+        <div class="slider"></div>
+    </label>
+</div>
+<div ng-if="$.currentField.Settings.EnableButton2">
+    <div class="b-field">
+        <label class="form-label">Button Text 2</label>
+        <input type="text" ng-model="$.currentField.Settings.ButtonText2" class="b-input form-control" />
+    </div>
+    <div class="b-field">
+        <label class="form-label">Button Css 2</label>
+        <input type="text" ng-model="$.currentField.Settings.ButtonCss2" class="b-input form-control" />
+    </div>
+</div>
